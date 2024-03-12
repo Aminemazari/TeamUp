@@ -7,3 +7,28 @@
     max-height: 48px;
     width: 100%;
 }
+
+.secondary_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#682DFE ;
+    width: 100%;
+    padding: var(--paddings-gaps-p-3, 18px) var(--paddings-gaps-p-4, 24px);
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    border: 1px solid var(--Main-goten, #FFF);
+    color: var(--Main-goten, #FFF);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* UI Type/text-md/[S] */
+    font-family: DM Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+    
+  
+ 
+
+}

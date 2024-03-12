@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.hero{
+    display: flex;
+}
+.textSide{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:  #682DFE;
+    width:  46%;
+    height: 100vh;
+}
+.formSide {   
+    background: var(--Main-goku, #F5F5F5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 54%;
+}
+.description{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap:20px; 
+    max-width:260px;
+}
+.GrowYourTeam{
+    color: var(--Main-goten, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-4xl/[R] */
+    font-family: DM Sans;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px; /* 120% */
+    letter-spacing: -0.5px;
+}
+.dont_have_account{
+    color: var(--Main-goten, #FFF);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-lg/[R] */
+font-family: DM Sans;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 155.556% */
+}
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 20px;
+    width: 27.63vw;
+}
+.creatYourAccount{
+    color: #000;
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-5xl/[S] */
+font-family: "DM Sans";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; /* 116.667% */
+letter-spacing: -1px;
+
+max-width:297px;
+}
+.Same_input{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--Size-80, 8px);
+}
+.enter_Data{
+    color: var(--Main-bulma, #000);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-md/[R] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.or{
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+ 
+    color: var(--Main-zeno, rgba(0, 0, 0, 0.56));
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* UI Type/text-md/[R] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+
+}
+.socialMedia{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.logo{
+    position: absolute;
+    left: 10px;
+    top:10px;
+}
+.singUpFormNotVisible{
+    display: none;
+}
+
+
+.visibilityOfSignUpButton{
+    width: 100%;
+    background-color: transparent;
+    opacity: 1;
+    transition: all 0.3s ease; 
+}
+
+.ButtonNotVisibale{
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+.verificationForm{
+ 
+   opacity: 0;
+   width:0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+
+}
+
+.NotactiveClass{
+    width: auto;
+    opacity: 1;
+    visibility: visible;
+}
+

@@ -1,15 +1,16 @@
 import React from 'react'
-import { Button, Flex } from 'antd';
-const CTA_Button = ({text}) => {
-  const customButtonStyle = {
+import { Button } from 'antd';
+import style from "./style.module.css"
+const secondary_button = ({text,border,onclick}) => {
+ const customButtonStyle = {
     display: "flex",
     width: "100%",
     padding: "2.1vw",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "var(--Interactive-border-radius---radius-i-sm, 12px)",
-    border: "1px solid var(--Main-piccolo, #682DFE)",
-    color: "#682DFE",
+    border: "1px solid var(--Main-goten, #682DFE)",
+    color: "var(--Main-goten, #FFF)",
     textAlign: "center", // Use camelCase for text-align
     fontFeatureSettings: "'clig' off, 'liga' off", // Use camelCase for font-feature-settings
     fontFamily: "DM Sans",
@@ -17,14 +18,16 @@ const CTA_Button = ({text}) => {
     fontStyle: "normal",
     fontWeight: 700,
     lineHeight: "24px",
-    background:"white",
+    background:"#682DFE",
   };
-  
+  if ( border ){
+     customButtonStyle.border="1px solid var(--Main-goten, #FFF)";
+ }
+
+
   return (
-   <>
- <Button size='large'  block style={customButtonStyle}>{text}</Button>
-   </>
+  <Button onClick={onclick} size='large' block type="primary" style={customButtonStyle} >{text}</Button>
   )
 }
 
-export default CTA_Button
+export default secondary_button
