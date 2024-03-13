@@ -27,8 +27,27 @@
     font-style: normal;
     font-weight: 700;
     line-height: 24px; /* 150% */
-    
-  
- 
+}
+.DoneNotification{
+    display: inline-flex;
+    padding: var(--pt-4, 16px) var(--px-4, 16px);
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    background: var(--Main-gohan, #FFF);
 
+    /* Light/shadow-lg */
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.40), 0px 8px 24px -6px rgba(0, 0, 0, 0.16);
+}
+.Your_account_has_been_verified{
+    align-items: center;
+}
+.tag{
+    display: flex;
+    max-height: 40px;
+    max-height: var(--height-h-10, 40px);
+    padding: 0.8vw 1.2vw;
+    align-items: center;
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    background: var(--Main-jiren, rgba(104, 45, 254, 0.12));
 }

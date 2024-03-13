@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.TagFormNotVisible{
+    opacity: 0;
+    width:0;
+     visibility: hidden;
+     transition: all 0s ease;
+}
+.TagFormVisble{
+  
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.7s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap:24px;
+    width: 33.63vw;
+}
+
+.discover{
+    color: #000;
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-5xl/[S] */
+font-family: "DM Sans";
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; /* 116.667% */
+letter-spacing: -1px;
+max-width: 321px;
+height: 112px;
+flex-shrink: 0;
+}
+.whatField{
+    color: var(--subtle-dark, #61646B);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-xl/[R] */
+font-family: "DM Sans";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 160% */
+}
+.tags{
+    background-color: transparent;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
+}

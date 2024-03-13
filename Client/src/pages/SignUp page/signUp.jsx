@@ -9,19 +9,19 @@ import linkdln from "../assets/linkdln.svg"
 import logo from "../assets/logo.svg"
 import Virification_Form from './virification_Form'
 import classNames from 'classnames';
-
+import TagsSelect from './tagsSelect_form'
 
 const signUp = () => {
   const [isVisibale,setVisibale]=useState(false);
+
+  const [isVirification_Form,setVirification_Form]=useState(false);
+
 const handleClick = (e)=>{
   e.preventDefault();
   setVisibale(true);
+  setVirification_Form(true);
 }
 
-const isVirificationForm = classNames(
-  style.verificationForm,
-  { [style.NotactiveClass]: isVisibale },
-);
 
 
 const isSignUpForm = classNames(
@@ -39,9 +39,7 @@ classNames(
   return (
     <div className={style.hero}>
       <section className={style.textSide}>  
-
         <img src={logo} className={style.logo}></img>
-        
         <main className={style.description}>
            <h1 className={style.GrowYourTeam}>Grow Your Team Working Skills</h1>
           <p className={style.dont_have_account}>Don't have an account yet? Sign Up Here</p>
@@ -49,7 +47,6 @@ classNames(
             <Secondary_button border={true} text={"LOG IN"}></Secondary_button>
           </mark>
         </main>
-
       </section>
       <section className={style.formSide}>
         {/* the form that will shows when you enter the sign up page */}
@@ -76,9 +73,11 @@ classNames(
 
      </main>
        {/* the form that will shows when you click to sign up  */}
-     <div className={isVirificationForm}>
-              <Virification_Form/>
-     </div>
+   
+          <Virification_Form animate={isVisibale}/>
+    
+     
+   
 
       </section>
     </div>

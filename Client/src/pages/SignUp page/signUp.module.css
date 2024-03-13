@@ -20,6 +20,8 @@
     justify-content: center;
     align-items: center;
     width: 54%;
+    height: 100vh;
+    overflow: hidden;
 }
 .description{
     display: flex;
@@ -149,18 +151,4 @@ max-width:297px;
 
 
 
-.verificationForm{
- 
-   opacity: 0;
-   width:0;
-    visibility: hidden;
-    transition: all 0.5s ease;
-
-}
-
-.NotactiveClass{
-    width: auto;
-    opacity: 1;
-    visibility: visible;
-}
 

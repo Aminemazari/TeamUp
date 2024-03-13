@@ -1,11 +1,23 @@
-.hero{
-    max-width: 399px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 24px;
+
+.verificationForm{
+    opacity: 1;
+    width:0;
+     visibility: hidden;
+     transition: all 0s ease;
 }
+.NotactiveClass{
+    width: auto;
+       opacity: 1;
+       visibility: visible;
+       max-width: 399px;
+       display: flex;
+       flex-direction: column;
+       align-items: start;
+       justify-content: center;
+       gap: 24px;
+       transition: all 0.7s ease;
+   }
+
 .verify{
    max-width: 297px;
 
@@ -61,3 +73,29 @@ line-height: 24px; /* 150% */
     gap: 10px;
     
 }
+.animatedDiv {
+    background-color: transparent;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+
+  .TagFormNotVisible{
+  
+    opacity: 0;
+     width:0;
+      visibility: hidden;
+      transition: all 0.5s ease;
+  
+  }
+  .TagFormVisibale{
+    width: auto;
+       opacity: 1;
+       visibility: visible;
+   }
