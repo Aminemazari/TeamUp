@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Flex } from 'antd';
-const CTA_Button = ({text}) => {
+const CTA_Button = ({text,onclick}) => {
   const customButtonStyle = {
     display: "flex",
     width: "100%",
@@ -22,7 +22,7 @@ const CTA_Button = ({text}) => {
   
   return (
    <>
- <Button size='large'  block style={customButtonStyle}>{text}</Button>
+ <Button size='large'  block style={customButtonStyle} onClick={onclick} >{text}</Button>
    </>
   )
 }
