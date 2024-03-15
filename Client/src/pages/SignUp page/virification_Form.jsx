@@ -10,6 +10,7 @@ import classNames from 'classnames';
 const virification_Form = ({animate}) => {
   const [isTagForm,setTagForm]=useState(false); 
   const [isVisible, setIsVisible] = useState(false);
+  const [isVerified,setVirification]=useState(false);
 
   useEffect(() => {
     if (animate) {

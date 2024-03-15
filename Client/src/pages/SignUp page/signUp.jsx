@@ -10,17 +10,70 @@ import logo from "../assets/logo.svg"
 import Virification_Form from './virification_Form'
 import classNames from 'classnames';
 import TagsSelect from './tagsSelect_form'
-
+import { useNavigate } from 'react-router-dom'
+import API_URL from '../../component/API_URL'
 const signUp = () => {
+  const Navigate = useNavigate("");
   const [isVisibale,setVisibale]=useState(false);
-
   const [isVirification_Form,setVirification_Form]=useState(false);
 
-const handleClick = (e)=>{
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+const SingUphandleClick = async (e)=>{
   e.preventDefault();
+  try{
+    const response = await fetch(`${API_URL}/api/v2/auth/register`,{
+      method: "POST",
+      headers : new Headers( {  'content-type' : 'application/json' } ),
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+   
+    const data = await response.json() ; 
+     if (data){
+      console.log(data); 
+     }
+    }catch (error) { 
+      console.log(error)
+      setStatus("error");
+     
+    }
+
+
+
+
+
+
+
+
+
+
   setVisibale(true);
   setVirification_Form(true);
+
 }
+const handleChangeEmail = (newValue) => {
+ 
+  setEmail(newValue);
+};
+
+const handleChangePassword = (newValue) => {
+ 
+  setPassword(newValue);
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35,6 +88,10 @@ classNames(
   { [style.ButtonNotVisibale]: isVisibale },
 );
 
+  const LogInhandleClick =(e)=>{
+    e.preventDefault();
+    Navigate("/");
+  }
 
   return (
     <div className={style.hero}>
@@ -44,7 +101,7 @@ classNames(
            <h1 className={style.GrowYourTeam}>Grow Your Team Working Skills</h1>
           <p className={style.dont_have_account}>Don't have an account yet? Sign Up Here</p>
           <mark className={isButton}>
-            <Secondary_button border={true} text={"LOG IN"}></Secondary_button>
+            <Secondary_button border={true} text={"LOG IN"} onclick={LogInhandleClick}></Secondary_button>
           </mark>
         </main>
       </section>
@@ -54,14 +111,14 @@ classNames(
         <h1 className={style.creatYourAccount}>Create Your Account.</h1>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your email</p>
-          <Input placeHolder={"eg.mazariamine095@gmail.com"}></Input>
+          <Input placeHolder={"eg.mazariamine095@gmail.com"} inputValue={email} onInputChange={handleChangeEmail}></Input>
         </div>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your password</p>
-          <Input_password ></Input_password>
+          <Input_password InputValue={password} onInputChange={handleChangePassword} ></Input_password>
         </div>
        
-        <Secondary_button text={"SIGN UP"} border={false} onclick={handleClick}></Secondary_button>
+        <Secondary_button text={"SIGN UP"} border={false} onclick={SingUphandleClick}></Secondary_button>
 
         <p className={style.or}>Or continue With</p>
 

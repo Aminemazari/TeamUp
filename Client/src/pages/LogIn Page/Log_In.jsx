@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import style from "./logIn.module.css"
 import logo from "../assets/WhiteLogo.svg" 
 import Button from '../../component/CTA_Button'
@@ -6,16 +6,63 @@ import Input from '../../component/Input_Fields'
 import withGithub from "../assets/withGithub.svg"
 import withGoogle from "../assets/withGoogle.svg"
 import withLinkdln from "../assets/withLinkdln.svg"
+import API_URL from '../../component/API_URL'
+import { Navigate, useNavigate } from 'react-router-dom'
+import Input_Password from "../../component/Input_password"
 const logIn = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [status,setStatus] = useState("");
+  const Navigate=useNavigate("");
+  
+  const loginClickHandler = async (e) => {
+    e.preventDefault();
+    try{
+      const response = await fetch(`${API_URL}/api/v2/auth/login`,{
+        method: "POST",
+        headers : new Headers( {  'content-type' : 'application/json' } ),
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      })
+     
+      const data = await response.json() ; 
+       if (data){
+        console.log(data); 
+       }
+      }catch (error) { 
+        console.log(error)
+        setStatus("error");
+       
+      }
+    
+    
+  }
+
+  const handleChangeEmail = (newValue) => {
+    setStatus("");
+    setEmail(newValue);
+  };
+
+  const handleChangePassword = (newValue) => {
+    setStatus("");
+    setPassword(newValue);
+  };
+  const signupClickHandler =(e)=>{
+    e.preventDefault();
+    Navigate("/SignUp")
+  }
+
   return (
     <div className={style.hero}>
-        
+  
       <section className={style.textSide}>
          <img src={logo} className={style.logo}/>
          <div className={style.connection}>
           <h1 className={style.TeamUp_connects}> TeamUp connects you with mentors</h1>
           <p className={style.dont_have_account}>Don't have an account yet? Sign Up Here</p>
-         <Button text={"Sign Up"} ></Button>
+         <Button text={"Sign Up"} onclick={signupClickHandler}></Button>
          </div>
       </section>
 
@@ -25,16 +72,16 @@ const logIn = () => {
         <h1 className={style.welcome}>Welcome Back!</h1>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your email</p>
-         <Input placeHolder={"eg.moha riade17@gmail.com"}></Input>
+         <Input placeHolder={"eg.moha riade17@gmail.com"} Status={status} inputValue={email} onInputChange={handleChangeEmail} ></Input>
         </div>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your password</p>
-          <Input placeHolder={"password"}></Input>
+          <Input_Password  Status={status} inputValue={password} onInputChange={handleChangePassword}></Input_Password>
           <p className={style.informationHolder}>Informative message holder</p>
           
         </div>
        
-        <Button text={"LOG IN"} ></Button>
+        <Button text={"LOG IN"}  onclick={loginClickHandler}></Button>
         <p className={style.or}>Or continue With</p>
 
         <div className={style.socialMedia}>

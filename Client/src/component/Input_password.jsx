@@ -3,7 +3,7 @@ import { useState } from 'react';
 import style from "./style.module.css"
 import { Button, Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-const Input_password = ({inputValue, onInputChange}) => {
+const Input_password = ({inputValue, onInputChange,Status}) => {
   const [input, setInput] = useState(inputValue || '');
 
   const handleInputChange = (e) => {
@@ -20,6 +20,7 @@ const Input_password = ({inputValue, onInputChange}) => {
       iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
       value={input} 
       onChange={handleInputChange} 
+      status={Status}
    />
     </>
   )
