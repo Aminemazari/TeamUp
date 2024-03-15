@@ -20,6 +20,22 @@ const signUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
+
+
+  const generateRandomWord = () => {
+    const characters = 'abcdefghijklmnopqrstuvwxyz';
+    let word = '';
+
+    for (let i = 0; i < 7; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      word += characters[randomIndex];
+    }
+
+    return word;
+  };
+  
 const SingUphandleClick = async (e)=>{
   e.preventDefault();
   try{
@@ -27,33 +43,21 @@ const SingUphandleClick = async (e)=>{
       method: "POST",
       headers : new Headers( {  'content-type' : 'application/json' } ),
       body: JSON.stringify({
+        displayName: generateRandomWord(),
         email: email,
         password: password,
       }),
-    })
-   
-    const data = await response.json() ; 
-     if (data){
-      console.log(data); 
-     }
-    }catch (error) { 
-      console.log(error)
-      setStatus("error");
-     
+    }) 
+    const data = await response.json() ;
+  
+    if (data.status === 200 ){
+      setVisibale(true);
+      setVirification_Form(true);
     }
-
-
-
-
-
-
-
-
-
-
-  setVisibale(true);
-  setVirification_Form(true);
-
+    
+    }catch (error) { 
+      console.log(error) 
+    }
 }
 const handleChangeEmail = (newValue) => {
  
@@ -131,7 +135,7 @@ classNames(
      </main>
        {/* the form that will shows when you click to sign up  */}
    
-          <Virification_Form animate={isVisibale}/>
+          <Virification_Form confirme={isVisibale} UserEmail={email}/>
     
      
    

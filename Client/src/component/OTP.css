@@ -1,0 +1,23 @@
+/* OTPInput.css */
+.otp-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .otp-input {
+    width: 50px;
+    height: 55px;
+    text-align: center;
+    font-size: 18px;
+    margin: 0 5px;
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  /* Styling for focus state */
+  .otp-input:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #007bff; /* Change border color when focused */
+  }
+  

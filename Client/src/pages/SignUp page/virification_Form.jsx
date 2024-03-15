@@ -7,16 +7,18 @@ import ValidAllert from '../../component/validAllert'
 import { useState,useEffect } from 'react'
 import TagsSelect from './tagsSelect_form'
 import classNames from 'classnames';
-const virification_Form = ({animate}) => {
+import value from "../../component/OTP"
+const virification_Form = ({confirme,UserEmail}) => {
   const [isTagForm,setTagForm]=useState(false); 
   const [isVisible, setIsVisible] = useState(false);
   const [isVerified,setVirification]=useState(false);
+  const [animate,setAnimate]=useState(false);
 
   useEffect(() => {
-    if (animate) {
+    if (confirme) {
       setIsVisible(true);
     }
-  }, [animate]);
+  }, [confirme]);
   
 
   const clickHandler=(e)=>{
@@ -30,7 +32,14 @@ const virification_Form = ({animate}) => {
     style.verificationForm,
     { [style.NotactiveClass]: isVisible },
   );
- 
+
+  const [otp, setOTP] = useState('');
+
+  const handleOTPChange = (index, value) => {
+    const newOTP = otp.slice(0, index) + value + otp.slice(index + 1);
+    setOTP(newOTP);
+  };
+
   return (
     <>
     <div className={isVirificationForm} >
@@ -39,11 +48,12 @@ const virification_Form = ({animate}) => {
     <p className={style.weveSentACode}>We've sent a code to [email address] to verify your account</p>
     <section className={style.verificationProcess}>
       <p className={style.enterPin}>Enter PIN Code</p>
-          <OTP></OTP>
+      <OTP length={6} onChange={handleOTPChange} />
+
         <button className={style.didntReceiveACode}>Didn't receive a code?</button>
     </section>
 
-    <mark className={`${style.animatedDiv} ${isVisible ? style.visible : ''}`}>
+    <mark className={`${style.animatedDiv} ${animate ? style.visible : ''}`}>
     <ValidAllert> </ValidAllert> 
     </mark>
     
