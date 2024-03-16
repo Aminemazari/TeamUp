@@ -7,6 +7,8 @@ import ValidAllert from '../../component/validAllert'
 import { useState,useEffect } from 'react'
 import TagsSelect from './tagsSelect_form'
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom'
+import API_URL from '../../component/API_URL'
 import value from "../../component/OTP"
 const virification_Form = ({confirme,UserEmail}) => {
   const [isTagForm,setTagForm]=useState(false); 
@@ -19,12 +21,30 @@ const virification_Form = ({confirme,UserEmail}) => {
       setIsVisible(true);
     }
   }, [confirme]);
-  
-
-  const clickHandler=(e)=>{
+ const clickHandler= async (e)=>{
     e.preventDefault();
-    setTagForm(true); 
-    setIsVisible(false)
+
+    try{
+      setTagForm(true); 
+      setIsVisible(false);
+      setAnimate(true);
+      const response = await fetch(`${API_URL}/api/v2/auth/confirmEmail`,{
+        method: "POST",
+        headers : new Headers( {  'content-type' : 'application/json' } ),
+        body: JSON.stringify({
+          email: UserEmail,
+          code: otp,
+        }),
+      }) 
+      const data = await response.json() ;
+  
+      
+      
+      }catch (error) { 
+        console.log(error) 
+      }
+    
+ 
 
   }
 

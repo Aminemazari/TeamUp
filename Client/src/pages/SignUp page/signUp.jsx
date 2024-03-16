@@ -16,44 +16,31 @@ const signUp = () => {
   const Navigate = useNavigate("");
   const [isVisibale,setVisibale]=useState(false);
   const [isVirification_Form,setVirification_Form]=useState(false);
-
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-
-
-
-  const generateRandomWord = () => {
-    const characters = 'abcdefghijklmnopqrstuvwxyz';
-    let word = '';
-
-    for (let i = 0; i < 7; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      word += characters[randomIndex];
-    }
-
-    return word;
-  };
   
 const SingUphandleClick = async (e)=>{
   e.preventDefault();
   try{
     const response = await fetch(`${API_URL}/api/v2/auth/register`,{
       method: "POST",
-      headers : new Headers( {  'content-type' : 'application/json' } ),
+      headers : new Headers( { 
+         'content-type' : 'application/json',
+        } ),
       body: JSON.stringify({
-        displayName: generateRandomWord(),
+        displayName:userName,
         email: email,
         password: password,
       }),
     }) 
     const data = await response.json() ;
   
-    if (data.status === 200 ){
+   /* if (data.status === 200 ){*/
       setVisibale(true);
       setVirification_Form(true);
-    }
+    
     
     }catch (error) { 
       console.log(error) 
@@ -67,6 +54,9 @@ const handleChangeEmail = (newValue) => {
 const handleChangePassword = (newValue) => {
  
   setPassword(newValue);
+};
+const handleChangeUserName = (newValue) => {
+  setUserName(newValue);
 };
 
 
@@ -113,6 +103,10 @@ classNames(
         {/* the form that will shows when you enter the sign up page */}
      <main className={isSignUpForm}>
         <h1 className={style.creatYourAccount}>Create Your Account.</h1>
+        <div className={style.Same_input}>
+          <p className={style.enter_Data}>Enter your name</p>
+          <Input placeHolder={"Mazari Amine"} inputValue={userName} onInputChange={handleChangeUserName}></Input>
+        </div>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your email</p>
           <Input placeHolder={"eg.mazariamine095@gmail.com"} inputValue={email} onInputChange={handleChangeEmail}></Input>

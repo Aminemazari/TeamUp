@@ -49,5 +49,54 @@
     padding: 0.8vw 1.2vw;
     align-items: center;
     border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
-    background: var(--Main-jiren, rgba(104, 45, 254, 0.12));
+background: var(--base, #FFF);
+}
+.tag:hover{
+    background: gray; 
+}
+.tagGray{
+    display: flex;
+    max-height: 40px;
+    max-height: var(--height-h-10, 40px);
+    padding: 0.8vw 1.2vw;
+    align-items: center;
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    background: gray;
+}
+.NavigationLinks{
+    display: flex;
+    padding: 0.7167vw  1.2vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--Neutral-12, #141414);
+
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* UI Type/text-sm/[S] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+}
+.NavigationLinksClicked{
+
+}
+.NavBar{
+    display: flex;
+    padding: 12px 30px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.Navigation{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.features{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.3vw;
 }
