@@ -93,10 +93,447 @@ background: var(--base, #FFF);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    gap:0.3vw;
 }
 .features{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     gap: 1.3vw;
+}
+
+.NavigationLinks{
+    text-align: center; 
+    color: #404040;
+  background-color: inherit;
+  position: relative;
+  transition: color 0.3s ease;
+  }
+  .NavigationLinks:hover{
+    color: var(--Primary-6, #6738DD);
+  }
+  .NavigationLinks::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2.7px;
+    border-radius: 1.35px; 
+    bottom: 0;
+    left: 0;
+    background-color:var(--Primary-6, #6738DD); /* Change this color to your desired underline color */
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+    color: var(--Primary-6, #6738DD);
+  /* subtle-medium */
+  font-family: DM Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  
+  }
+  
+  .NavigationLinks:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+    color: var(--Primary-6, #6738DD);
+  }
+  .NavigationLinks:active{
+    color: var(--Primary-6, #6738DD);
+  }
+
+  .FixedUnderlineButton {
+    text-align: center; 
+    color: #6738DD;
+  background-color: inherit;
+  position: relative;
+  position: relative;
+
+
+}
+.FixedUnderlineButton::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2.7px;
+    border-radius: 1.35px; 
+    background-color:var(--Primary-6, #6738DD) ;
+}
+.profileCard{
+    width: 100%;
+    max-height: 134px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.Profile_card_countainer{
+    display: flex;
+    max-width: 211px;
+    max-height: 134px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+.avatar{
+   position: relative;
+   align-self: center;
+}
+.bdge{
+    position: absolute;
+    z-index: 100;
+   bottom: 0;
+   right: 0;
+  
+}
+.userName{
+    color: var(--Neutral-12, #141414);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-2xl/[S] */
+font-family: DM Sans;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 32px; /* 133.333% */
+}
+.CareerName{
+ color: var(--Neutral-8, #595959);
+/* UI Type/text-sm/[R] */
+font-family: DM Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 171.429% */
+}
+.ReviewsSection{
+    display: flex;
+    align-self: flex-end;
+    gap:5px;
+}
+.Reviews{
+    color: var(--Neutral-8, #595959);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-sm/[S] */
+font-family: "DM Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 171.429% */
+}
+.ReviewsNumber{
+    color: var(--Main-zeno, rgba(0, 0, 0, 0.56));
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-sm/[R] [L] */
+font-family: "DM Sans";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 171.429% */
+text-decoration-line: underline;
+}
+.streak{
+    display: flex;
+    width: 100%;
+    padding: 0.625vw 0.9375vw;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap:10px;
+    border-radius: 12px;
+    background: var(--Neutral-3, #F5F5F5);
+}
+.streakStatus{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.days{
+    color: var(--Neutral-8, #595959);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* UI Type/text-md/[R] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.statusDefault{
+    width: 18px;
+    height: 18px;
+    background-color:#D9D9D9;; /* You can change the background color */
+    border-radius: 50%;
+}
+.statusConfirmed{
+    width: 18px;
+    height: 18px;
+    background-color:#6738DD;; /* You can change the background color */
+    border-radius: 50%;
+}
+.StreakTitle{
+    color: var(--Neutral-11, #1F1F1F);
+text-align: center;
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-md/[R] */
+font-family: "DM Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
+.StreakCountainer{
+    display: flex;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
+}
+.premiumAccesCard{
+    display: flex;
+    max-width: 100%;
+    padding: 12px ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
+    background: var(--black-night, #070707);
+    box-shadow: 0px 14px 24px 0px rgba(0, 0, 0, 0.15);
+}
+.Percentage{
+    max-width: 186px;
+    display: flex;
+    height: 66px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--base, #FFF);
+    text-align: center;
+    /* UI Type/text-4xl/[S] */
+    font-family: "DM Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 120% */
+    letter-spacing: -0.5px;
+
+}
+.GetAccess{
+    max-width: 180px;
+    
+    color: var(--Neutral-8, #595959);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* UI Type/text-sm/[R] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.Upgrade_Button{
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid var(--Neutral-5, #D9D9D9);
+    background: var(--Neutral-1, #FFF);
+    display: flex;
+    padding: 4px 15px;
+    justify-content: center;
+    align-items: center;
+   
+
+    /* drop-shadow/button-secondary */
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.02);  
+    color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+    text-align: center;
+
+    /* Body/regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */  
+
+}
+
+.ProjectsMemberCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 173px;
+    height: 178px;
+    padding: 12px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: linear-gradient(254deg, #FFF -123.36%, #682DFE 93.31%);
+    box-shadow: 0px 12px 12px 0px rgba(104, 45, 254, 0.25);
+    max-width: 173px;
+}
+.staticItem{
+    display: flex;
+    flex-direction: column;
+    align-items:start ;
+}
+.NumberOfMember{
+    color: var(--base, #FFF);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-4xl/[S] */
+    font-family: "DM Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 120% */
+    letter-spacing: -0.5px;
+    
+}
+.groupImage{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    width: 100%;
+}
+.Member{
+    color: var(--base, #FFF);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-md/[R] */
+font-family: "DM Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+}
+ 
+
+.projectCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 173px;
+    height: 178px;
+    padding: 12px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border-radius: 12px;
+    background: linear-gradient(57deg, #000 0.96%, #666 146.41%);
+    box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.15);
+}
+.Projects{
+    color: var(--Neutral-8, #595959);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+
+    /* UI Type/text-md/[R] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    }
+
+.SkillsGrowth{
+    display: flex;
+    justify-content: space-between;
+    max-width: 366px;
+    height: 184px;
+    border-radius: 12px;
+    background: var(--base, #FFF);
+}
+.skillsInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 118.892px;
+    align-items: start;
+   
+}
+.SkillsTitle{
+    color: #272D36;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-2xl/[S] */
+    font-family: "DM Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+}
+.sKillsCountainer{
+ display: flex;
+ flex-direction: column;
+ background: var(--base, #FFF);
+ width: 100%;
+
+}
+.skillPerformance{
+    width: 100%;
+    display: flex;
+    padding: 6px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+.skill{
+    color: #352E4A;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-xs/[R] */
+    font-family: "DM Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
+}
+.skillNum{
+    color: #222225;
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[R] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.ProjectMeeting{
+    width: 366px;
+    display: flex;
+    padding: 12px;
+    gap: 26px;
+    border-radius: 12px;
+    background: var(--base, #FFF);
+}
+.Meetingdate{
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[R] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.Meetingtime{
+    color: var(--Neutral-11, #1F1F1F);
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[S] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
 }

@@ -10,10 +10,10 @@ const NavBar = () => {
     <div className={style.NavBar}>
         <img src={logo} alt="logo" className={style.TLogo} />
         <div className={style.Navigation}>
-            <NavigationLinks text={"Dashboard"}/>
+            <NavigationLinks text={"Dashboard"} />
             <NavigationLinks text={"Explore"}/>
             <NavigationLinks text={"Mentorship"}/>
-            <NavigationLinks text={"About Us"}/>
+            <NavigationLinks text={"About Us"} />
         </div>
         <section className={style.features}>
       <img src={chat}/>

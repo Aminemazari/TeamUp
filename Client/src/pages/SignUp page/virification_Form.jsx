@@ -25,9 +25,7 @@ const virification_Form = ({confirme,UserEmail}) => {
     e.preventDefault();
 
     try{
-      setTagForm(true); 
-      setIsVisible(false);
-      setAnimate(true);
+
       const response = await fetch(`${API_URL}/api/v2/auth/confirmEmail`,{
         method: "POST",
         headers : new Headers( {  'content-type' : 'application/json' } ),
@@ -36,12 +34,23 @@ const virification_Form = ({confirme,UserEmail}) => {
           code: otp,
         }),
       }) 
-      const data = await response.json() ;
-  
       
+      const statusCode = response.status;
+      if (statusCode===200){
+    
+      setAnimate(true); 
+
+      setTimeout(() => {
+        setTagForm(true); 
+      setIsVisible(false);
+      }, 1500);
+     
+      } 
+     
+   
       
-      }catch (error) { 
-        console.log(error) 
+    }catch (error) { 
+      
       }
     
  
@@ -65,7 +74,7 @@ const virification_Form = ({confirme,UserEmail}) => {
     <div className={isVirificationForm} >
       
     <h1 className={style.verify}>Verify Your Account</h1>
-    <p className={style.weveSentACode}>We've sent a code to [email address] to verify your account</p>
+    <p className={style.weveSentACode}>We've sent a code to {`[${UserEmail}]` } to verify your account</p>
     <section className={style.verificationProcess}>
       <p className={style.enterPin}>Enter PIN Code</p>
       <OTP length={6} onChange={handleOTPChange} />

@@ -35,15 +35,19 @@ const SingUphandleClick = async (e)=>{
         password: password,
       }),
     }) 
-    const data = await response.json() ;
-  
-   /* if (data.status === 200 ){*/
-      setVisibale(true);
+    const statusCode = response.status;
+   if (statusCode===200){
+    setVisibale(true);
       setVirification_Form(true);
+   }
+  else{
+
+  }
     
-    
+
     }catch (error) { 
       console.log(error) 
+  
     }
 }
 const handleChangeEmail = (newValue) => {

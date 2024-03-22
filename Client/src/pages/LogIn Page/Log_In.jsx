@@ -27,12 +27,15 @@ const logIn = () => {
         }),
       })
      
-      const data = await response.json() ; 
-       if (data){
-        console.log(data); 
-       }
+      const statusCode = response.status;
+      if (statusCode===200){
+        Navigate("/signup");
+      }
+      else{
+        setStatus("error");
+      }
+    
       }catch (error) { 
-        console.log(error)
         setStatus("error");
        
       }
