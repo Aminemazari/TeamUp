@@ -65,11 +65,11 @@ gap: 6px;
 }
 .mentor{
     color: var(--Neutral-8, #595959);
-font-feature-settings: 'clig' off, 'liga' off;
-font-family: Montserrat;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 16px; /* 133.333% */
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 133.333% */
 
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styl from "./style.module.css"
+import styl from "../style.module.css"
 const premiumAccesCard = ({Percentage,projectName}) => {
   return (
     <div className={styl.premiumAccesCard}>

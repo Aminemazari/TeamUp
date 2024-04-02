@@ -73,7 +73,7 @@ background: var(--base, #FFF);
 
     font-feature-settings: 'clig' off, 'liga' off;
     /* UI Type/text-sm/[S] */
-    font-family: "DM Sans";
+    font-family: DM Sans;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -190,10 +190,10 @@ background: var(--base, #FFF);
 }
 .userName{
     color: var(--Neutral-12, #141414);
-font-feature-settings: 'clig' off, 'liga' off;
+
 
 /* UI Type/text-2xl/[S] */
-font-family: DM Sans;
+    font-family: DM Sans;
 font-size: 24px;
 font-style: normal;
 font-weight: 700;
@@ -218,7 +218,7 @@ line-height: 24px; /* 171.429% */
 font-feature-settings: 'clig' off, 'liga' off;
 
 /* UI Type/text-sm/[S] */
-font-family: "DM Sans";
+font-family: DM Sans;
 font-size: 14px;
 font-style: normal;
 font-weight: 700;
@@ -229,7 +229,7 @@ line-height: 24px; /* 171.429% */
 font-feature-settings: 'clig' off, 'liga' off;
 
 /* UI Type/text-sm/[R] [L] */
-font-family: "DM Sans";
+font-family: DM Sans;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -259,7 +259,7 @@ text-decoration-line: underline;
     font-feature-settings: 'clig' off, 'liga' off;
 
     /* UI Type/text-md/[R] */
-    font-family: "DM Sans";
+    font-family: DM Sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -283,7 +283,7 @@ text-align: center;
 font-feature-settings: 'clig' off, 'liga' off;
 
 /* UI Type/text-md/[R] */
-font-family: "DM Sans";
+font-family: DM Sans;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
@@ -317,7 +317,7 @@ align-self: stretch;
     color: var(--base, #FFF);
     text-align: center;
     /* UI Type/text-4xl/[S] */
-    font-family: "DM Sans";
+    font-family: DM Sans;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -333,7 +333,7 @@ align-self: stretch;
     font-feature-settings: 'clig' off, 'liga' off;
 
     /* UI Type/text-sm/[R] */
-    font-family: "DM Sans";
+    font-family: DM Sans;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -387,7 +387,7 @@ align-self: stretch;
     font-feature-settings: 'clig' off, 'liga' off;
     
     /* UI Type/text-4xl/[S] */
-    font-family: "DM Sans";
+    font-family: DM Sans;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -407,7 +407,7 @@ align-self: stretch;
     font-feature-settings: 'clig' off, 'liga' off;
 
 /* UI Type/text-md/[R] */
-font-family: "DM Sans";
+font-family: DM Sans;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
@@ -536,4 +536,261 @@ line-height: 24px; /* 150% */
     font-style: normal;
     font-weight: 700;
     line-height: 24px; /* 171.429% */
+}
+.categoriesCard{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    padding: 15px;
+    max-width:  260px;;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: var(--Primary-1, #F8F5FF);
+    box-shadow: 0px 118px 33px 0px rgba(179, 152, 249, 0.00), 0px 75px 30px 0px rgba(179, 152, 249, 0.01), 0px 42px 25px 0px rgba(179, 152, 249, 0.05), 0px 19px 19px 0px rgba(179, 152, 249, 0.09), 0px 5px 10px 0px rgba(179, 152, 249, 0.10);
+}
+.categorieName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1.3vw;
+    color: var(--black-night, #070707);
+    font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-2xl/[S] */
+    font-family: "DM Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+
+}
+.categorie_countainer{
+  display: flex;
+  gap:1.5vh;
+  flex-direction: column;
+  align-items: start;
+}
+.number_Of_Project_In_Catedorie{
+
+   
+}
+.projectNumbertext{
+    color: var(--black-night, #070707);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-5xl/[S] */
+font-family: DM Sans;
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 56px; /* 116.667% */
+letter-spacing: -1px;
+}
+.projecettext{
+    color: var(--black-night, #070707);
+    font-feature-settings: 'calt' off;
+    
+    /* Wirefrming/WF Body/Body Small */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.14px;
+}
+.mentoresProfiles{
+    display: flex;
+    align-items: center;
+ 
+}
+.mentortext{
+    color: var(--normal, #19191B);
+    font-feature-settings: 'calt' off;
+    
+    /* Wirefrming/WF Body/Body Small */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.14px;
+}
+.categoriesCard:hover{
+
+    background: var(--Primary-2, #D5C5FD);
+    box-shadow: 0px 118px 33px 0px rgba(179, 152, 249, 0.00), 0px 75px 30px 0px rgba(179, 152, 249, 0.01), 0px 42px 25px 0px rgba(179, 152, 249, 0.05), 0px 19px 19px 0px rgba(179, 152, 249, 0.09), 0px 5px 10px 0px rgba(179, 152, 249, 0.10);
+}
+
+.entrole_button {
+        display: flex;
+        width: 100%;
+        padding: 6.4px 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 6px;
+        border: 1px solid var(--Primary-6, #6738DD);
+        background: var(--Primary-6, #6738DD);
+        
+        /* drop-shadow/button-primary */
+        box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+        color: #FFF;
+        color: var(--character-primary-inverse, #FFF);
+        text-align: center;
+        
+        /* H5/regular */
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; /* 150% */
+    }
+    
+
+.post{
+    max-width: 789px;
+   display: flex;
+   padding: 53px;
+   padding-bottom: 10px;
+   flex-direction: column;
+   gap:10px;
+   align-items: center;
+   border-bottom: 0.4px solid var(--Neutral-8, #595959);
+   background: #FFF;
+}
+.postWriterInfo{
+    display: flex;
+    align-self: flex-start;
+    justify-content: space-between;
+    background: #FFF;
+    gap:3vw;
+
+}
+.more{
+    color: var(--Primary-6, #6738DD);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* Paragraph/text-sm/[S] [L] */
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px; /* 142.857% */
+text-decoration-line: underline;
+}
+
+.postBody{
+    max-width:  498px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    align-items: flex-start;
+    background: #FFF;
+    
+}
+.userNamePost{
+    color: var(--Neutral-12, #141414);
+
+
+/* UI Type/text-xl/[R] */
+    font-family: DM Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px; /* 160% */
+}
+.postTitle{
+    color: var(--black, #000);
+    font-feature-settings: 'clig' off, 'liga' off;
+    /* UI Type/text-2xl/[S] */
+    font-family: DM Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+}
+.postDescription{
+    color: var(--subtle-dark, #61646B);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Paragraph/text-md/[R] */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.postTags{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+}
+.dateOfPosting{
+    width: 140px;
+    align-self: flex-end;
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[R] */
+    font-family: DM Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+}
+.postTag{
+   
+    padding: 6px 12px;
+    align-items: center; 
+    border-radius: 6px;
+    border: 1px solid var(--Primary-5, #7C50E9);
+    background: var(--Primary-1, #F8F5FF);
+    color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+
+    /* Footnote/description */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+.Profile_card_countainer_post{
+    display: flex;
+    max-width: 211px;
+    max-height: 134px;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+.buttonpostenroll{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    background-color: white;
+}
+.enrollButton{
+    background-color: white;
+    display: flex;
+    align-items: end;
+    width: 137px;
+
+}
+.categorieButton{
+    display: inline-flex;
+    padding: 8px 16px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 99px;
+    border: 1px solid var(--Neutral-5, #D9D9D9);
+    background: var(--Primary-2, #D5C5FD);
+    color: var(--Neutral-13, #000);
+
+    /* H5/regular */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
 }

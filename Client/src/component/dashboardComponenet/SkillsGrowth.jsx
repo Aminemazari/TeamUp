@@ -1,7 +1,7 @@
 import React from 'react'
-import styl from "./style.module.css"
+import styl from "../style.module.css"
 import { Flex, Progress, Tooltip } from 'antd';
-import around from "../assets/around.svg"
+import around from "../../assets/around.svg"
 const SkillsGrowth = ({skill1,skill2,skill3}) => {
   return (
     <div className={styl.SkillsGrowth}>

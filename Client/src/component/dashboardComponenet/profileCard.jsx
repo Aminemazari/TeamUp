@@ -1,8 +1,8 @@
 import React from 'react'
-import style from "./style.module.css"
-import picture from "../assets/Avatar.svg"
-import star from "../assets/star.svg"
-import badge from "../assets/Badges.svg"
+import style from "../style.module.css"
+import picture from "../../assets/Avatar.svg"
+import star from "../../assets/star.svg"
+import badge from "../../assets/Badges.svg"
 const profileCard = ({userName,CareerName,ReviewsNumber,Reviews,profilePicture}) => {
   if (profilePicture==null){
     profilePicture=picture;

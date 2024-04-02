@@ -29,7 +29,7 @@ const logIn = () => {
      
       const statusCode = response.status;
       if (statusCode===200){
-        Navigate("/signup");
+        Navigate("/Home");
       }
       else{
         setStatus("error");

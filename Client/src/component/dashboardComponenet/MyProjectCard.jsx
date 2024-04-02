@@ -1,7 +1,7 @@
 import React from 'react'
 import styl from "./styl.module.css"
-import darhboard_alt from "../assets/darhboard_alt.svg"
-import chat from "../assets/chatIconblue.svg"
+import darhboard_alt from "../../assets/darhboard_alt.svg"
+import chat from "../../assets/chatIconblue.svg"
 import { Progress } from 'antd';
 const MyProjectCard = ({projectName,mentor,Dns,Percent}) => {
   return (
@@ -13,11 +13,11 @@ const MyProjectCard = ({projectName,mentor,Dns,Percent}) => {
         <p>{projectName}</p>
         <div className={styl.dns}>
         {
-            Dns.map((dn)=>{
+            /*Dns.map((dn)=>{
                 return(
                     <p className={styl.dn}>{dn}</p>
                 )
-            })
+            })*/
 
         }
         </div>

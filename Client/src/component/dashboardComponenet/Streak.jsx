@@ -1,5 +1,5 @@
 import React from 'react'
-import styl from "./style.module.css"
+import styl from "../style.module.css"
 const Streak = ({sun,mon,tue,Wed,thu,frd,sat}) => {
 
   return (

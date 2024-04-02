@@ -1,6 +1,6 @@
 import React from 'react'
-import styl from "./style.module.css"
-import Flag from "../assets/Flag.svg"
+import styl from "../style.module.css"
+import Flag from "../../assets/Flag.svg"
 const projectCard = ({number}) => {
   return (
     <div className={styl.projectCard}>

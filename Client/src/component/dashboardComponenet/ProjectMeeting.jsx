@@ -1,6 +1,6 @@
 import React from 'react'
-import styl from "./style.module.css"
-import Date_today from "../assets/Date_today.svg"
+import styl from "../style.module.css"
+import Date_today from "../../assets/Date_today.svg"
 const ProjectMeeting = ({Date,Time}) => {
   return (
     <div className={styl.ProjectMeeting}>

@@ -1,6 +1,6 @@
 import React from 'react'
-import styl from "./style.module.css"
-import Group from "../assets/Group.svg"
+import styl from "../style.module.css"
+import Group from "../../assets/Group.svg"
 const ProjectsMemberCard = ({number}) => {
   return (
     <div className={styl.ProjectsMemberCard}>

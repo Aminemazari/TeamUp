@@ -1,0 +1,120 @@
+.postDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--paddings-gaps-p-4, 24px);
+    background: #FFF;
+    width: 750px;
+    padding: 45px;
+    gap:20px;
+}
+.profileCard{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    gap:20px;
+}
+.postBody{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    max-width: 524px;
+}
+.title{
+    max-width: 412px;
+    color: var(--Neutral-12, #141414);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-4xl/[S] */
+    font-family: "DM Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 120% */
+    letter-spacing: -0.5px;
+}
+.descriptions{
+    max-width: 500px;
+    color: var(--Neutral-8, #595959);
+    text-align: justify;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Paragraph/text-md/[R] */
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.categorieButton{
+    width: clamp(300px, 50vw, 500px);
+    justify-content: start;
+    align-items: start;
+}
+.description{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+}
+.line{
+    height: 1px;
+    width: 90%;
+    background-color:  rgba(0, 0, 0, 0.06);
+}
+.tags{
+    display: flex;
+    gap:15px;
+    flex-wrap: wrap;
+}
+.team{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap:10px;
+}
+.teamText{
+    color: var(--subtle-dark, #61646B);
+    font-feature-settings: 'calt' off;
+
+    /* Wirefrming/WF Body/Body Small */
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+    letter-spacing: -0.14px;
+}
+.teamNum{
+    display: flex;
+    gap:12px;
+    align-items: center;
+    color: var(--Neutral-12, #141414);
+    text-align: justify;
+    
+    /* Wirefrming/WF Headings/Heading S */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 33.6px */
+  
+}
+.member{
+    color: var(--Neutral-8, #595959);
+text-align: center;
+font-feature-settings: 'calt' off;
+
+/* Wirefrming/WF Buttons/Button Medium */
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 150% */
+letter-spacing: -0.16px;
+}
+
+.buttonpostenroll{
+    padding-top:6vh ;
+    width: 212px;
+}
