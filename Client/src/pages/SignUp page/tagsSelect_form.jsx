@@ -7,7 +7,6 @@ import classNames from 'classnames'
 const tagsSelect_form = ({visible}) => {
 
   const [isVisible, setIsVisible] = useState(false);
-
   const [AI_and_Machine_Learning,setAI_and_Machine_Learning]=useState(false);
   const [Designer,setDesigner] =useState(false);
   const [Frontend,setFrontend] =useState(false);
@@ -21,27 +20,107 @@ const tagsSelect_form = ({visible}) => {
   switch (parameter) {
     case "AI and Machine Learning":
       setAI_and_Machine_Learning(!AI_and_Machine_Learning);
+      if (AI_and_Machine_Learning==false){
+        setFrontend(false);
+        setBackend(false);
+        setDataScience(false);
+        setSecurity(false);
+        setMobile(false);
+        setOther(false);
+        setDesigner(false);
+      }
       break;
     case "UI UX Design":
       setDesigner(!Designer);
+      if (Designer==false){
+        setAI_and_Machine_Learning(false);
+        setFrontend(false);
+        setBackend(false);
+        setDataScience(false);
+        setSecurity(false);
+        setMobile(false);
+        setOther(false);
+      }
       break;
       case "Frontend Development":
         setFrontend(!Frontend);
+        if (Frontend==false){
+        setAI_and_Machine_Learning(false);
+          setDesigner(false);
+          setBackend(false);
+          setDataScience(false);
+          setSecurity(false);
+          setMobile(false);
+          setOther(false);
+        }
+        
         break;
       case "Backend Development":
         setBackend(!Backend);
+
+        if (Backend==false){
+        setAI_and_Machine_Learning(false);
+
+          setFrontend(false);
+          setDesigner(false);
+          setDataScience(false);
+          setSecurity(false);
+          setMobile(false);
+          setOther(false);
+        }
+
         break;
         case "Data Science":
           setDataScience(!DataScience);
+          if (DataScience==false){
+        setAI_and_Machine_Learning(false);
+
+            setFrontend(false);
+            setBackend(false);
+            setDesigner(false);
+            setSecurity(false);
+            setMobile(false);
+            setOther(false);
+          }
           break;
         case "Cyber Security":
           setSecurity(!Security);
+          if (Security==false){
+        setAI_and_Machine_Learning(false);
+
+            setFrontend(false);
+            setBackend(false);
+            setDataScience(false);
+            setDesigner(false);
+            setMobile(false);
+            setOther(false);
+          }
           break;
           case "Mobile Development":
             setMobile(!Mobile);
+            if (Mobile==false){
+        setAI_and_Machine_Learning(false);
+
+              setFrontend(false);
+              setBackend(false);
+              setDataScience(false);
+              setSecurity(false);
+              setDesigner(false);
+              setOther(false);
+            }
             break;
           case "Other":
             setOther(!Other);
+            if (Other==false){
+        setAI_and_Machine_Learning(false);
+
+              setFrontend(false);
+              setBackend(false);
+              setDataScience(false);
+              setSecurity(false);
+              setMobile(false);
+              setDesigner(false);
+            }
             break;
  
   }

@@ -87,6 +87,7 @@ background: var(--base, #FFF);
     padding: 12px 30px;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 
 }
 .Navigation{
@@ -779,7 +780,7 @@ text-decoration-line: underline;
 }
 .categorieButton{
     display: inline-flex;
-    padding: 8px 16px;
+    padding: 8px 15px;
     align-items: center;
     gap: 4px;
     border-radius: 99px;
@@ -793,4 +794,34 @@ text-decoration-line: underline;
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
+}
+.filterCategoriesButton{
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 99px;
+    border: 1px solid var(--Neutral-5, #D9D9D9);
+    background: var(--Neutral-1, #FFF);
+
+    color: var(--Neutral-13, #000);
+
+    /* H5/regular */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.filterCategoriesButton:hover{
+    color: #9570F2;
+    
+}
+
+.filterCategoriesButtonActive{
+    background: var(--Primary-4, #9570F2);
+    color: var(--Neutral-1, #FFF);
+}
+.filterCategoriesButtonActive:hover{
+    color: white;
 }

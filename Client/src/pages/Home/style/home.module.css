@@ -1,5 +1,8 @@
 .hero{
-    padding: 50px;
-    display: flex;
-    justify-content: center;
+background:  #F5F5F5;
+height: 100vh;
+overflow: hidden;
+}
+.countainer{
+    padding: 20px;
 }
