@@ -5,6 +5,7 @@ import Virification_Form from "./pages/SignUp page/virification_Form"
 import { Route, BrowserRouter, Router, Routes } from 'react-router-dom'; 
 import Dashboard from "./pages/Dashboard Page/Dashboard";
 import Home from "./pages/Home/home";
+import Explore from "./pages/Explore/Explore.jsx";
 function App() {
   
   return (
@@ -13,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/SignUp" element={<SignUp/>}/>
-      <Route path="/Home" element={<Home/>}/>
+      <Route path="/Home" element={<Explore/>}/>
        </Routes>
   </BrowserRouter>
     </>

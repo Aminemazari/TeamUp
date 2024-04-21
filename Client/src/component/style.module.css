@@ -658,6 +658,8 @@ letter-spacing: -1px;
    align-items: center;
    border-bottom: 0.4px solid var(--Neutral-8, #595959);
    background: #FFF;
+   border-top-left-radius: 1px;
+   border-top-right-radius: 1px;
 }
 .postWriterInfo{
     display: flex;
@@ -728,7 +730,7 @@ text-decoration-line: underline;
     width: 90%;
 }
 .dateOfPosting{
-    width: 140px;
+    width: 150px;
     align-self: flex-end;
     color: var(--Neutral-8, #595959);
     font-feature-settings: 'clig' off, 'liga' off;
@@ -824,4 +826,71 @@ text-decoration-line: underline;
 }
 .filterCategoriesButtonActive:hover{
     color: white;
+}
+.searchBar{
+    display: flex;
+    width: 100%;
+    padding: 14px 12px;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.SearchInput{
+    display: flex;
+    padding: var(--py-3, 12px) var(--pr-4, 16px) var(--py-3, 12px) var(--pl-3, 12px);
+    align-items: center;
+    gap: var(--Size-80, 8px);
+    align-self: stretch;
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    border: 1px solid var(--Main-beerus, #E2E2E2);
+    background: var(--Main-gohan, #FFF);
+    width: 60%;
+}
+
+.search_Input{
+    color: var(--Main-trunks, #595D62);
+    font-feature-settings: 'clig' off, 'liga' off;
+    flex: 1 0 0;    
+    /* UI Type/text-md/[R] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    border: none;
+}
+.search_Input:focus{
+  border:none;
+  outline: none;
+  color: black;
+  font-feature-settings: 'clig' off, 'liga' off;
+  
+  /* UI Type/text-md/[R] */
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  }
+.clearButton{
+    color: var(--Main-trunks, #595D62);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Paragraph/text-sm/[R] */
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+.filterButton{
+    display: flex;
+    padding: var(--py-3, 12px) var(--pr-4, 16px) var(--py-3, 12px) var(--pl-3, 12px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Size-120, 12px);
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+    border: 1px solid var(--Main-beerus, #E2E2E2);
 }
