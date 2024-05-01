@@ -19,7 +19,7 @@
     "@heathmont/moon-icons-tw": "^9.28.6",
     "@heathmont/moon-themes-tw": "^10.13.5",
     "@mui/material": "^5.15.12",
-    "antd": "^5.15.2",
+    "antd": "^5.16.5",
     "classnames": "^2.5.1",
     "framer-motion": "^11.0.12",
     "moon-library": "^0.0.1",

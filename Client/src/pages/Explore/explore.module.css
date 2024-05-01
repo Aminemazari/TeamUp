@@ -7,6 +7,7 @@
     }
 .not_diplayed{
     width: 100%;
+    display: none;
     height: 0;
     opacity: 0;
     transition: all 200ms ease;
@@ -28,20 +29,22 @@
 
 .countainer{
         position: relative;
-        width: clamp(300px, 80%, 828px); 
+        width: clamp(300px, 100%, 828px); 
           }
 .posts{
-        height: 389px;
+
+        height: 100vh;
         width: 100%;
         overflow: auto;  
         -webkit-scrollbar: none;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        transition: all 0.2s ease ;
         }
 
 .SearchBar{
     margin-top: -16px;
-      width: clamp(300px, 80%, 828px);          
+      width: clamp(300px, 100%, 828px);          
     }
  .filterButton{
     display: flex;
@@ -49,3 +52,29 @@
     gap: 12px;
     padding-bottom: 14px;
  }
+ .Mentores_Sub_Section{
+  height: 389px;
+  width: 100%;
+  overflow: auto;  
+  -webkit-scrollbar: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: all 0.2s ease ;
+  }
+  .mentoresCards{
+    display: flex;
+    gap:30px;
+    flex-wrap: wrap;
+  }
+  .popular{
+    position: fixed ;
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-xl/[S] */
+    font-family: "DM Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 160% */
+  }

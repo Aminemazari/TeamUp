@@ -6,15 +6,26 @@ import { Route, BrowserRouter, Router, Routes } from 'react-router-dom';
 import Dashboard from "./pages/Dashboard Page/Dashboard";
 import Home from "./pages/Home/home";
 import Explore from "./pages/Explore/Explore.jsx";
+import Mentorship from "./pages/Mentorship page/mentorship.jsx"
+import AboutUs from "./pages/aboutUs Page/AboutUs.jsx";
+import Overview from "./pages/Explore/create Project Pages/Overview.jsx";
+import ProjectDetails from "./pages/Explore/create Project Pages/ProjectDetails.jsx";
 function App() {
   
   return (
     <>
        <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Home/>}/>
+      <Route path="/" element={<Overview/>}/>
       <Route path="/SignUp" element={<SignUp/>}/>
-      <Route path="/Home" element={<Explore/>}/>
+      <Route path="/explore" element={<Home/>}/>
+      <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/mentorship" element={<Mentorship/>}/>
+      <Route path="/about" element={<AboutUs/>}/>
+      
+
+
+
        </Routes>
   </BrowserRouter>
     </>

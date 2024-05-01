@@ -6,7 +6,7 @@ import dashboard from "../assets/darhboard_.svg"
 import Button from './filterCategoriesButton'
 import group from "../assets/Grou.svg"
 import time from "../assets/Time.svg"
-const filterSideBar = ({onFilterSelection}) => {
+const filterSideBar = ({onFilterSelection,display}) => {
     const [category,setCategory]=useState([]);
     const [teamSize,setTeamSize]=useState([]);
     const [Duration,setDuration]=useState([]);
@@ -22,17 +22,17 @@ const filterSideBar = ({onFilterSelection}) => {
     const [AI,setAI]=useState(false);
     const [DataScience,setDataScience]=useState(false);
     const [Design,setDesign]=useState(false);
-    
+    const [Cybersecurity,setCybersecurity]=useState(false);
+    const [GameDev,setGameDev]=useState(false);
+
     const[twoToTree,setTwoToTree]=useState(false);
     const[treeToFive,setTreeToFive]=useState(false);
     const[fiveToTen,setFiveToTen]=useState(false);
     const[plusTen,setPlusTen]=useState(false);
 
-    const[treeDays,setTreeDays]=useState(false);
-    const[oneWeek,setOneWeek]=useState(false);
-    const[twoweek,setTwoweek]=useState(false);
-    const[plusMounth,setPlusmounth]=useState(false);
-    const[treeWeek,setTreeWeek]=useState(false);
+    const [twoToTreeWeeks,setTwoToTreeWeeks]=useState(false);
+    const [oneWeek,setOneWeek]=useState(false);
+
 
    const addCategorie=(categorie,size,date)=>{
       if (categorie !=="" ){
@@ -84,41 +84,38 @@ const filterSideBar = ({onFilterSelection}) => {
     case "Design":
         setDesign(!Design);
         break;
+        case "GameDev":
+            setGameDev(!GameDev);
+            break;
+        case "Cybersecurity":
+            setCybersecurity(!Cybersecurity);
+            break;
         default:
             break;
    }
    switch (size) {
-    case "2-3":
+    case "3-5":
         setTwoToTree(!twoToTree);
         break;
-    case "3-5":
+    case "6-11":
         setTreeToFive(!treeToFive);
         break;
-    case "5-10":
+    case "11-16":
         setFiveToTen(!fiveToTen);
         break;
-    case "+10":
+    case "+16":
         setPlusTen(!plusTen);
         break;
         default:
             break;
    }
    switch (date) {
-    case "3 days":
-        setTreeDays(!treeDays);
-        break;
     case "1 week":
         setOneWeek(!oneWeek);
         break;
-    case "2 weeks":
-        setTwoweek(!twoweek);
-        break;
-    case "3 weeks":
-        setTreeWeek(!treeWeek);
-        break;
-    case "+1 month":
-        setPlusmounth(!plusMounth);
-        break;
+        case "2-3 weeks":
+            setTwoToTreeWeeks(!twoToTreeWeeks);
+            break;
         default:
             break;
    }
@@ -139,7 +136,7 @@ const durationOpen = ()=>{
 
 
   return (
-    <div className={style.sideBar}>
+    <div className={`${style.sideBar} ${!display ? style.not_diplayed: ''}`}>
 
      <mark className={style.filter_Icon}>
         <img src={filter}></img>
@@ -155,11 +152,13 @@ const durationOpen = ()=>{
             <img src={Expand_up} className={`${style.Expand_up} ${projectCategory ? style.Expand_down: ''}`}></img>
         </button> 
         <section  className={`${style.project_Categories_countainer} ${projectCategory ? style.project_Categories_countainer_Open : ''}`}>
-         <Button text={"Web"}   onclick={() => addCategorie("Web","","")} clicked={web}/>
-         <Button text={"Mobile"} onclick={() => addCategorie("Mobile","","")} clicked={Mobile}/>
-         <Button text={"AI and ML"} onclick={() => addCategorie("AI and ML","","")} clicked={AI}/>
-         <Button text={"Data Science"} onclick={() => addCategorie("Data Science","","")} clicked={DataScience}/>
+         <Button text={"Web Dev"}   onclick={() => addCategorie("Web","","")} clicked={web}/>
+         <Button text={"AI "} onclick={() => addCategorie("AI and ML","","")} clicked={AI}/>
          <Button text={"Design"} onclick={() => addCategorie("Design","","")} clicked={Design}/>
+         <Button text={"Mobile  Dev"} onclick={() => addCategorie("Mobile","","")} clicked={Mobile}/>
+         <Button text={"Data Science"} onclick={() => addCategorie("Data Science","","")} clicked={DataScience}/>
+         <Button text={"Cybersecurity"} onclick={() => addCategorie("Cybersecurity","","")} clicked={Cybersecurity}/>
+         <Button text={"GameDev"} onclick={() => addCategorie("GameDev","","")} clicked={GameDev}/>
         </section>
      </div>
 
@@ -172,10 +171,10 @@ const durationOpen = ()=>{
             <img src={Expand_up} className={`${style.Expand_up} ${TeamSizeOpen ? style.Expand_down: ''}`}></img>
         </button> 
         <section className={`${style.project_Categories_countainer} ${TeamSizeOpen ? style.project_Categories_countainer_Open : ''}`}>
-         <Button text={"2-3"} onclick={() => addCategorie("","2-3","")} clicked={twoToTree}/>
-         <Button text={"3-5"} onclick={() => addCategorie("","3-5","")} clicked={treeToFive}/>
-         <Button text={"5-10"} onclick={() => addCategorie("","5-10","")} clicked={fiveToTen}/>
-         <Button text={"+10"} onclick={() => addCategorie("","+10","")} clicked={plusTen}/>
+         <Button text={"3-5"} onclick={() => addCategorie("","3-5","")} clicked={twoToTree} />
+         <Button text={"6-11"} onclick={() => addCategorie("","6-11","")} clicked={treeToFive}/>
+         <Button text={"11-16"} onclick={() => addCategorie("","11-16","")} clicked={fiveToTen}/>
+         <Button text={"+16"} onclick={() => addCategorie("","+16","")} clicked={plusTen}/>
         </section>
      </div>
 
@@ -189,11 +188,8 @@ const durationOpen = ()=>{
             <img src={Expand_up} className={`${style.Expand_up} ${DurationOpen ? style.Expand_down: ''}`}></img>
         </button> 
         <section className={`${style.project_Categories_countainer} ${DurationOpen ? style.project_Categories_countainer_Open : ''}`}>
-         <Button text={"3 days"} onclick={() => addCategorie("","","3 days")} clicked={treeDays}/>
          <Button text={"1 week"} onclick={() => addCategorie("","","1 week")} clicked={oneWeek}/>
-         <Button text={"2 weeks"} onclick={() => addCategorie("","","2 weeks")} clicked={twoweek}/>
-         <Button text={"3 weeks"} onclick={() => addCategorie("","","3 weeks")} clicked={treeWeek}/>
-         <Button text={"+1 month"} onclick={() => addCategorie("","","+1 month")} clicked={plusMounth} />
+         <Button text={"2-3 weeks"} onclick={() => addCategorie("","","2-3 weeks")} clicked={twoToTreeWeeks}/>
         </section>
      </div>
      </section>

@@ -9,8 +9,15 @@
     /*background: var(--Neutral-1, #FFF);*/
     background-color: #FFF;
    height:83vh;
-
-
+   opacity: 1;
+   transition: all 0.3s ease ;
+}
+.not_diplayed{
+    width: 0;
+    height: 0px;
+    opacity: 0;
+   display: none;
+    transition: all 200ms ease;
 }
 .countainer{
     display: flex;

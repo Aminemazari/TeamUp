@@ -1,0 +1,111 @@
+.hero{
+    background: var(--Main-goku, #F5F5F5);
+    height: 100vh;
+}
+.ProjectDetails{
+    display:flex;
+    width: 100%;
+    gap:100px;
+    overflow: hidden;
+    background: var(--Main-goku, #F5F5F5);
+}
+.Overview{
+    display:flex;
+    width: 100%;
+    gap:100px;
+    overflow: hidden;
+    background: var(--Main-goku, #F5F5F5);
+}
+.Steps{
+    display: flex;
+    width: 450px;
+    height: 70vh;
+    padding: 48px 54px;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #FFF;
+}
+.titlePublish{
+    color: var(--Neutral-12, #141414);
+    font-feature-settings: 'clig' off, 'liga' off;    
+    /* UI Type/text-2xl/[S] */
+    font-family: "DM Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+}
+.ProjectDetailsForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: calc(100vh - 72px);
+    padding: 10px 10px ;
+    overflow: auto;  
+    -webkit-scrollbar: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.OverviewForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    height: calc(100vh - 72px);
+    padding: 10px 10px ;
+    overflow: auto;  
+    -webkit-scrollbar: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.projectDetailsText{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-3xl/[S] */
+    font-family: "DM Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.5px;
+}
+.questions{
+    display: flex;
+    padding-bottom: 8px;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+    color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+    /* Body/regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}
+.star{
+    color: var(--Dust-Red-5, #FF4D4F);
+    text-align: right;
+    font-family: SimSong;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.001px; /* 157.15% */
+}
+.textFild{
+    width: 40vw;
+}
+.passengerAlert{
+    color: var(--character-secondary-45, rgba(0, 0, 0, 0.45));
+
+    /* Body/regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}

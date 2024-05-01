@@ -6,36 +6,20 @@ import menu from "../pages/assets/Menu.svg"
 import chat from "../pages/assets/Chat.svg"
 import Setting from "../pages/assets/Setting.svg"
 import { useNavigate } from 'react-router-dom'
-const NavBar = ({DashboardClicked,ExploreClicked,MentorshipClicked,AboutClicked,Dashboard,Explore,Mentorship,About}) => {
-  /*
-  const [Dashboard,setDashboard]=useState(false);
-  const [Explore,setExplore]=useState(false);
-  const [Mentorship,setMentorship]=useState(false);
-  const [About,setAbout]=useState(false);
-   const dachboardOn=()=>{
-    setDashboard(!Dashboard)
-    setExplore(false)
-    setMentorship(false)
-    setAbout(false)
+const NavBar = ({Dashboard,Explore,Mentorship,About}) => {
+  const Navigate= useNavigate();
+  const DashboardClicked=()=>{
+    Navigate("/dashboard")
    }
-   const exploreOn=()=>{
-    setExplore(!Explore)
-    setDashboard(false)
-    setMentorship(false)
-    setAbout(false)
+   const ExploreClicked=()=>{
+    Navigate("/")
    }
-   const MentorshipOn=()=>{
-    setMentorship(!Mentorship)
-    setExplore(false)
-    setDashboard(false)
-    setAbout(false)
+   const MentorshipClicked=()=>{
+    Navigate("/mentorship")
    }
-   const aboutUsOn=()=>{
-    setAbout(!About)
-    setMentorship(false)
-    setExplore(false)
-    setDashboard(false)
-   }*/
+   const AboutClicked=()=>{
+    Navigate("/about")
+   }
   return (
     <div className={style.NavBar}>
         <img src={logo} alt="logo" className={style.TLogo} />

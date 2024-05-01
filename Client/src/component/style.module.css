@@ -838,6 +838,7 @@ text-decoration-line: underline;
     flex-wrap: wrap;
 }
 .SearchInput{
+    width: 100%;
     display: flex;
     padding: var(--py-3, 12px) var(--pr-4, 16px) var(--py-3, 12px) var(--pl-3, 12px);
     align-items: center;

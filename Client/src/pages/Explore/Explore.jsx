@@ -14,7 +14,9 @@ import SearchBar from '../../component/searchBar.jsx'
 import style from "./explore.module.css"
 import FilterButton from '../../component/filterCategoriesButton.jsx'
 import PostSubSection from "./postSubSection.jsx"
-const explore = ({display}) => {
+import FilterSideBarProjects from '../../component/filterSideBarProjects.jsx'
+import MentoresSubSection from './mentoresSubSection.jsx'
+const explore = () => {
 
 
     /*FILTER SECTION
@@ -56,17 +58,21 @@ const explore = ({display}) => {
         setInputValue('');
       };
     /*end*/
-   
 
-
-
+    const [selectedFilterMentor, setSelectedFilterMentor] = useState({ category: [],available:false});
+ 
+  const handleFilterSelectionMentores=(filters)=>{
+    setSelectedFilterMentor(filters);
+    
+}
   return (
-    <div className={`${style.added} ${!display ? style.not_diplayed: ''}`}>
+    <div className={style.added}>
     <div className={style.hero}>
 
      <section className={style.Filter_Section}>
         <div className={style.Filter_Section_fixed}>
-         <FilterSideBar onFilterSelection={handleFilterSelection}/>
+         <FilterSideBar onFilterSelection={handleFilterSelection} display={filterProject}/>
+         <FilterSideBarProjects display={filterMentor} onFilterSelection={handleFilterSelectionMentores}/>
          </div>
      </section>
 
@@ -86,7 +92,9 @@ const explore = ({display}) => {
             </div>
 
         </div>
-         <PostSubSection display={true}/>
+        <PostSubSection display={filterProject}/>
+        <MentoresSubSection display={filterMentor}/>
+        
      </section>
     </div>
     </div>

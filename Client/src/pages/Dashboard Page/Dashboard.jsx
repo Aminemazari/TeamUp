@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from '../../component/NavBar'
+import Navbar from '../../component/NavBar'
 import style from "./style/Dashboard.module.css"
 import ProfileCard from '../../component/dashboardComponenet/profileCard'
 import Streak from '../../component/dashboardComponenet/Streak'
@@ -12,8 +12,7 @@ import MyProjectCard from '../../component/dashboardComponenet/MyProjectCard'
 const Dashboard = () => {
   return (
     <div className={style.hero}>
-    <NavBar></NavBar>
-    <MyProjectCard/>
+        <Navbar  Dashboard={true} Explore={false} Mentorship={false} About={false}/>  
     </div>
   )
 }
