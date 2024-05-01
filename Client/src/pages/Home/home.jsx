@@ -13,6 +13,7 @@ import TagsSelect_form from '../SignUp page/tagsSelect_form'
 import FilterSideBar from '../../component/filterSideBar.jsx'
 import SearchBar from '../../component/searchBar.jsx'
 import Explore_Page from '../Explore/Explore.jsx'
+
 const home = () => {
  /* the navigation button change */
   return (

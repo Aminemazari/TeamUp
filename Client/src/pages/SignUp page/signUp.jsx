@@ -88,7 +88,7 @@ classNames(
 
   const LogInhandleClick =(e)=>{
     e.preventDefault();
-    Navigate("/");
+    Navigate("/login");
   }
 
   return (

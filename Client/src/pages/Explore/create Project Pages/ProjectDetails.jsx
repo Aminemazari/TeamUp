@@ -1,12 +1,20 @@
 import React from 'react'
 import NavBar from '../../../component/NavBar'
 import style from "./style/CreatProject.module.css"
-import { Input } from 'antd';
+import { Input,Button } from 'antd';
 const { TextArea } = Input;
 import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
+import { useNavigate } from 'react-router-dom';
 const ProjectDetails = () => {
   const description = 'This is a description.';
+  const Navigate= useNavigate();
+  const SaveAndContinue =()=>{
+    Navigate("/project-scope")
+   }
+   const handleBackClick =()=>{
+    Navigate("/");
+   }
   return (
     <div className={style.hero}>
     <NavBar/>
@@ -82,9 +90,27 @@ const ProjectDetails = () => {
                  />
                  <p className={style.passengerAlert}>Please input passenger's name or delete this field.</p>
          </div>
-         <div>
-           
-         </div>
+         <div className={style.buttonsSave}>
+          <Button type="link" style={{
+               display:"flex",
+               alignItems:"center",
+               color:"#6738DD",
+               padding:"6.4px 15px",
+               fontSize:"16px",
+              }}
+              onClick={handleBackClick}
+          >Back</Button>
+           <Button type="primary"
+            style={{
+              display:"flex",
+              alignItems:"center",
+              padding:"6.4px 15px",
+              fontSize:"16px",
+              background:"#6738DD",
+            }}
+            onClick={SaveAndContinue}
+           >Save & Continue</Button>
+          </div>
            
        </section>
 

@@ -19,9 +19,9 @@
 .Steps{
     display: flex;
     width: 450px;
-    height: 70vh;
+    height: calc(100vh - 72px);;
     padding: 48px 54px;
-    justify-content: space-around;
+    gap: 1.875rem;
     flex-direction: column;
     align-items: flex-start;
     background: #FFF;
@@ -109,3 +109,10 @@
     font-weight: 400;
     line-height: 22px; /* 157.143% */
 }
+.buttonsSave{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+

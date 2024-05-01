@@ -10,24 +10,36 @@ import Mentorship from "./pages/Mentorship page/mentorship.jsx"
 import AboutUs from "./pages/aboutUs Page/AboutUs.jsx";
 import Overview from "./pages/Explore/create Project Pages/Overview.jsx";
 import ProjectDetails from "./pages/Explore/create Project Pages/ProjectDetails.jsx";
+import {ConfigProvider} from 'antd';
+import ProjectScope from "./pages/Explore/create Project Pages/ProjectScope.jsx"
 function App() {
   
   return (
     <>
+     <ConfigProvider
+    theme={{
+      token: {
+        // Seed Token
+        colorPrimary: '#6738DD',
+        // Alias Token
+      },
+    }}
+  >
        <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Overview/>}/>
+      <Route path="/" element={<ProjectScope/>}/>
+      <Route path="/project-scope" element={<ProjectScope></ProjectScope>}/>
+      <Route path="/project-details" element={<ProjectDetails/>}/>
       <Route path="/SignUp" element={<SignUp/>}/>
+      <Route path="/login" element={<LogIn/>}/>
       <Route path="/explore" element={<Home/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/mentorship" element={<Mentorship/>}/>
       <Route path="/about" element={<AboutUs/>}/>
-      
-
-
-
+  
        </Routes>
   </BrowserRouter>
+  </ConfigProvider>
     </>
   )
 }
