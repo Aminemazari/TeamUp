@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useState} from 'react'
 import style from "./style/CreatProject.module.css"
 import NavBar from '../../../component/NavBar'
-import { Input,Button } from 'antd';
+import { Input,Button,Tag} from 'antd';
+
 const { TextArea } = Input;
 import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
@@ -15,6 +16,26 @@ const ProjectScope = () => {
    const handleBackClick =()=>{
     Navigate("/");
    }
+   const [tags, setTags] = useState([]);
+
+   const handleInputChange = (event) => {
+     // No need to prevent default form submission here
+   };
+   const [inputValue, setInputValue] = useState('');
+   const handleInputKeyDown = (event) => {
+     if (event.key === 'Enter' && event.target.value.trim()) {
+       const newTag = event.target.value.trim();
+       setTags([...tags, newTag]);
+       setInputValue('');  // Clear input after adding tag
+     }
+   };
+   const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+   const handleTagDelete = (tagToDelete) => {
+     setTags(tags.filter((tag) => tag !== tagToDelete));
+   };
+ 
   return (
     <div className={style.hero}>
     <NavBar/>
@@ -59,13 +80,20 @@ const ProjectScope = () => {
          <p className={style.projectDetailsText}>Project Details</p>
          <div className={style.textFild}>
             <p className={style.questions}><span className={style.star}>* </span> What's the Project About ?</p>
-            <TextArea rows={4}
-            placeholder="Describe the overal project idea and purpose"
-                 style={{
-                   height: 220,
-                   resize: 'none',
-                 }}
-                 />
+            <Input.Search
+        placeholder="Enter a tag"
+        onSearch={handleInputChange} // No longer prevents default behavior
+        onKeyDown={handleInputKeyDown}
+        onChange={handleChange}
+        value={inputValue}
+        
+      />
+      <br />
+      {tags.map((tag) => (
+        <Tag key={tag} closable onClose={() => handleTagDelete(tag)}>
+          {tag}
+        </Tag>
+      ))}
                  <p className={style.passengerAlert}>Please input passenger's name or delete this field.</p>
          </div>
          <div className={style.textFild}>
