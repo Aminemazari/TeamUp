@@ -12,7 +12,11 @@ import classNames from 'classnames';
 import TagsSelect from './tagsSelect_form'
 import { useNavigate } from 'react-router-dom'
 import API_URL from '../../component/API_URL'
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+
 const signUp = () => {
+  const [loading ,setLoading]= useState(false);
   const Navigate = useNavigate("");
   const [isVisibale,setVisibale]=useState(false);
   const [isVirification_Form,setVirification_Form]=useState(false);
@@ -20,9 +24,12 @@ const signUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
+
   
 const SingUphandleClick = async (e)=>{
   e.preventDefault();
+  setLoading(true);
   try{
     const response = await fetch(`${API_URL}/api/v2/auth/register`,{
       method: "POST",
@@ -34,19 +41,22 @@ const SingUphandleClick = async (e)=>{
         email: email,
         password: password,
       }),
-    }) 
+    })
     const statusCode = response.status;
    if (statusCode===200){
+    console.log("amine")
     setVisibale(true);
-      setVirification_Form(true);
+    setVirification_Form(true);
+    setLoading(false);
    }
   else{
-
+    setLoading(false);
   }
     
 
     }catch (error) { 
       console.log(error) 
+      setLoading(false);
   
     }
 }
@@ -92,6 +102,13 @@ classNames(
   }
 
   return (
+    <>
+          {loading && ( 
+        <Box sx={{ width: '100%' }}>
+        <LinearProgress />
+        </Box>  
+
+      )}
     <div className={style.hero}>
       <section className={style.textSide}>  
         <img src={logo} className={style.logo}></img>
@@ -133,13 +150,14 @@ classNames(
      </main>
        {/* the form that will shows when you click to sign up  */}
    
-          <Virification_Form confirme={isVisibale} UserEmail={email}/>
+          <Virification_Form confirme={isVisibale} UserEmail={email} password={password}/>
     
      
    
 
       </section>
     </div>
+    </>
   )
 }
 

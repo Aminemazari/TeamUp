@@ -10,12 +10,15 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom'
 import API_URL from '../../component/API_URL'
 import value from "../../component/OTP"
-const virification_Form = ({confirme,UserEmail}) => {
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+const virification_Form = ({confirme,UserEmail,password}) => {
+  console.log("am hear")
   const [isTagForm,setTagForm]=useState(false); 
   const [isVisible, setIsVisible] = useState(false);
   const [isVerified,setVirification]=useState(false);
   const [animate,setAnimate]=useState(false);
-
+  const [loading ,setLoading]= useState(false);
   useEffect(() => {
     if (confirme) {
       setIsVisible(true);
@@ -23,7 +26,7 @@ const virification_Form = ({confirme,UserEmail}) => {
   }, [confirme]);
  const clickHandler= async (e)=>{
     e.preventDefault();
-
+    setLoading(true);
     try{
 
       const response = await fetch(`${API_URL}/api/v2/auth/confirmEmail`,{
@@ -37,12 +40,13 @@ const virification_Form = ({confirme,UserEmail}) => {
       
       const statusCode = response.status;
       if (statusCode===200){
-    
+       
       setAnimate(true); 
-
+      setLoading(true);
       setTimeout(() => {
         setTagForm(true); 
       setIsVisible(false);
+      
       }, 1500);
      
       } 
@@ -50,7 +54,7 @@ const virification_Form = ({confirme,UserEmail}) => {
    
       
     }catch (error) { 
-      
+      setLoading(false); 
       }
     
  
@@ -90,7 +94,7 @@ const virification_Form = ({confirme,UserEmail}) => {
          <Secondary_button text={"Continue"} onclick={clickHandler}/>    
     </div>
     
-      <TagsSelect visible={isTagForm}></TagsSelect>
+      <TagsSelect visible={isTagForm} email={UserEmail} password={password}></TagsSelect>
     
     </>
 

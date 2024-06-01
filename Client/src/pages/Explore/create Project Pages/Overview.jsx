@@ -8,12 +8,16 @@ import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
 import { Flex, Tag} from 'antd';
 import { useNavigate } from 'react-router-dom';
-const tagsData = ['Web Development', 'Design', 'Mobile Development', 'Cyber security'];
+const tagsData = ['Web Dev','Design','Mobile Dev','Cyber security'];
 const Overview = () => {
 const Navigate= useNavigate();
   const description = 'This is a description.';
   //GET THE DATA OF THE TAGS SELECTION //
-  const [selectedTags, setSelectedTags] = useState(['Movies']);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [projectTitle,setprojectTitle]=useState("");
+  const [ProjectSummary,setprojectSummary]=useState("");
+
+
   const handleChange = (tag, checked) => {
     const nextSelectedTags = checked
       ? [...selectedTags, tag]
@@ -22,10 +26,27 @@ const Navigate= useNavigate();
   };
  
  const SaveAndContinue =()=>{
-  Navigate("/project-details")
+   const dataToTransfer = {
+     project_title:projectTitle ,
+     project_Summary: ProjectSummary,
+     project_Category:selectedTags,
+     project_About:"",
+     skills_Learn:"",
+     team_Roles:[],
+     Required_Skills:[],
+     Team_Size:"",
+     project_Duration:"",
+   }; 
+  Navigate('/project-details', { state: { data : dataToTransfer} });
  }
  const handleBackClick =()=>{
   Navigate("/");
+ }
+ const handleInputProjectTitle = (event)=>{
+  setprojectTitle(event.target.value);
+ }
+ const handleInputProjectSammary =(event)=>{
+  setprojectSummary(event.target.value);
  }
   return (
     <div className={style.hero}>
@@ -71,7 +92,12 @@ const Navigate= useNavigate();
           <p className={style.projectDetailsText}>Let’s create a new project</p>
           <div className={style.textFild}>
              <p className={style.questions}><span className={style.star}>* </span> Project Title</p>
-             <Input placeholder="Enter a clear and concise title" size="large"/>
+             <Input 
+              placeholder="Enter a clear and concise title" 
+               size="large"
+               onChange={handleInputProjectTitle}
+               value={projectTitle}
+                />
                   <p className={style.passengerAlert}>8 words maximum. Use letters and numbers only.</p>
           </div>
           <div className={style.textFild}>
@@ -110,6 +136,8 @@ const Navigate= useNavigate();
              <p className={style.questions}><span className={style.star}>* </span> Project summary</p>
              <TextArea rows={4}
                placeholder="Briefly describe the project (2-3 sentences)."
+                  onChange={handleInputProjectSammary}
+                  value={ProjectSummary}
                   style={{
                     height: 152,
                     resize: 'none',

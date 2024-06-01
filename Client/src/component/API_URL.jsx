@@ -1,2 +1,2 @@
-const API_URL="https://teamup.fly.dev";
+const API_URL="https://teamup-app.fly.dev";
 export default API_URL ;

@@ -33,7 +33,7 @@
           }
 .posts{
 
-        height: 100vh;
+        height: calc(100vh - 160px);
         width: 100%;
         overflow: auto;  
         -webkit-scrollbar: none;
@@ -53,7 +53,7 @@
     padding-bottom: 14px;
  }
  .Mentores_Sub_Section{
-  height: 389px;
+  height: calc(100vh - 200px);
   width: 100%;
   overflow: auto;  
   -webkit-scrollbar: none;

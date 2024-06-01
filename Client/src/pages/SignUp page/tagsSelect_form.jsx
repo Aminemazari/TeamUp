@@ -4,8 +4,12 @@ import Tag from "../../component/tag"
 import Secondary_button from '../../component/secondary_button'
 import { useState,useEffect } from 'react'
 import classNames from 'classnames'
-const tagsSelect_form = ({visible}) => {
-
+import { useNavigate } from 'react-router-dom'
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+import API_URL from '../../component/API_URL'
+const tagsSelect_form = ({visible,email,password}) => {
+ 
   const [isVisible, setIsVisible] = useState(false);
   const [AI_and_Machine_Learning,setAI_and_Machine_Learning]=useState(false);
   const [Designer,setDesigner] =useState(false);
@@ -15,10 +19,13 @@ const tagsSelect_form = ({visible}) => {
   const[Mobile,setMobile]=useState(false);
   const[DataScience,setDataScience]=useState(false);
   const[Other,setOther]=useState(false);
-  const [arrayTags,setArrayTags]=useState([]);
+  const [tag,setTag]=useState("");
+  const [loading ,setLoading]= useState(false);
+
  const addTags= (parameter)=> {
   switch (parameter) {
     case "AI and Machine Learning":
+      setTag("AI and Machine Learning");
       setAI_and_Machine_Learning(!AI_and_Machine_Learning);
       if (AI_and_Machine_Learning==false){
         setFrontend(false);
@@ -31,6 +38,8 @@ const tagsSelect_form = ({visible}) => {
       }
       break;
     case "UI UX Design":
+      setTag("UI UX Design")
+
       setDesigner(!Designer);
       if (Designer==false){
         setAI_and_Machine_Learning(false);
@@ -43,6 +52,8 @@ const tagsSelect_form = ({visible}) => {
       }
       break;
       case "Frontend Development":
+        setTag("Frontend Development")
+
         setFrontend(!Frontend);
         if (Frontend==false){
         setAI_and_Machine_Learning(false);
@@ -56,6 +67,8 @@ const tagsSelect_form = ({visible}) => {
         
         break;
       case "Backend Development":
+        setTag("Backend Development")
+
         setBackend(!Backend);
 
         if (Backend==false){
@@ -71,6 +84,8 @@ const tagsSelect_form = ({visible}) => {
 
         break;
         case "Data Science":
+          setTag("Data Science")
+
           setDataScience(!DataScience);
           if (DataScience==false){
         setAI_and_Machine_Learning(false);
@@ -84,6 +99,8 @@ const tagsSelect_form = ({visible}) => {
           }
           break;
         case "Cyber Security":
+          setTag("Cyber Security")
+
           setSecurity(!Security);
           if (Security==false){
         setAI_and_Machine_Learning(false);
@@ -97,6 +114,8 @@ const tagsSelect_form = ({visible}) => {
           }
           break;
           case "Mobile Development":
+            setTag("Mobile Development")
+
             setMobile(!Mobile);
             if (Mobile==false){
         setAI_and_Machine_Learning(false);
@@ -110,6 +129,8 @@ const tagsSelect_form = ({visible}) => {
             }
             break;
           case "Other":
+            setTag("Other")
+
             setOther(!Other);
             if (Other==false){
         setAI_and_Machine_Learning(false);
@@ -126,8 +147,43 @@ const tagsSelect_form = ({visible}) => {
   }
 
   }
+  const Navigate = useNavigate();
 
+const handleclick=async(e)=>{
+  e.preventDefault();
+  setLoading(true);
+  try{
+    const response = await fetch(`${API_URL}/api/v2/auth/login`,{
+      method: "POST",
+      headers : new Headers( {  
+        'content-type' : 'application/json',
+      'accept': 'application/json'
+       } ),
+      body: JSON.stringify({
+        email: email,
+        password: password,
+ 
+      }),
+    }).then(response => response.json())
+    .then(data => {
+      if (data.accessToken!=null){
+        localStorage.setItem('accessToken',data.accessToken);
+        Navigate("/Home");
+      }
+      else{
+        setStatus("error");
+        setLoading(false);
+      }
+    })
 
+  
+    }catch (error) { 
+      console.log("Error :" + error)
+      setLoading(false);
+      setStatus("error");
+     
+    }
+}
   
   
 
@@ -156,7 +212,7 @@ const tagsSelect_form = ({visible}) => {
         <Tag text={"Mobile Development"} clicked={Mobile} onclick={() => addTags("Mobile Development")}></Tag>
         <Tag text={"Other"} clicked={Other} onclick={() => addTags("Other")}></Tag>
       </mark>
-      <Secondary_button text={"continue"} ></Secondary_button>
+      <Secondary_button text={"continue"}  onclick={handleclick}></Secondary_button>
     </div>
   )
 }

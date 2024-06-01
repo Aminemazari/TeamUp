@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import style from "./logIn.module.css"
 import logo from "../assets/WhiteLogo.svg" 
 import Button from '../../component/CTA_Button'
@@ -9,33 +9,50 @@ import withLinkdln from "../assets/withLinkdln.svg"
 import API_URL from '../../component/API_URL'
 import { Navigate, useNavigate } from 'react-router-dom'
 import Input_Password from "../../component/Input_password"
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+
 const logIn = () => {
+  console.log("fhkjdshf")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status,setStatus] = useState("");
-  const Navigate=useNavigate("");
-  
+  const [loading ,setLoading]= useState(false);
+
+
+
+  const Navigate=useNavigate();
   const loginClickHandler = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try{
       const response = await fetch(`${API_URL}/api/v2/auth/login`,{
         method: "POST",
-        headers : new Headers( {  'content-type' : 'application/json' } ),
+        headers : new Headers( {  
+          'content-type' : 'application/json',
+        'accept': 'application/json'
+         } ),
         body: JSON.stringify({
           email: email,
           password: password,
+   
         }),
+      }).then(response => response.json())
+      .then(data => {
+        if (data.accessToken!=null){
+          localStorage.setItem('accessToken',data.accessToken);
+          Navigate("/Home");
+        }
+        else{
+          setStatus("error");
+          setLoading(false);
+        }
       })
-     
-      const statusCode = response.status;
-      if (statusCode===200){
-        Navigate("/Home");
-      }
-      else{
-        setStatus("error");
-      }
+  
     
       }catch (error) { 
+        console.log(error)
+        setLoading(false);
         setStatus("error");
        
       }
@@ -58,8 +75,15 @@ const logIn = () => {
   }
 
   return (
+    <>
+      {loading && ( 
+        <Box sx={{ width: '100%' }}>
+        <LinearProgress />
+        </Box>  
+
+      )}
     <div className={style.hero}>
-  
+       
       <section className={style.textSide}>
          <img src={logo} className={style.logo}/>
          <div className={style.connection}>
@@ -97,6 +121,7 @@ const logIn = () => {
 
       </section>
     </div>
+    </>
   )
 }
 

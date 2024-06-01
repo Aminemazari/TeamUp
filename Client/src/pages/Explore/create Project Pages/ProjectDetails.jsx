@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from '../../../component/NavBar'
 import style from "./style/CreatProject.module.css"
 import { Input,Button } from 'antd';
@@ -6,14 +6,34 @@ const { TextArea } = Input;
 import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const ProjectDetails = () => {
+  const  location   = useLocation();
+  const receivedData  = location.state?.data; 
   const description = 'This is a description.';
   const Navigate= useNavigate();
+  const [ProjectAbout,setProjectAbout]=useState("");
+  const [ProjectLearn,setProjectLearn]=useState("");
+  const [ProjectSkills,setProjectSkills]=useState("");
+
+
   const SaveAndContinue =()=>{
-    Navigate("/project-scope")
+    receivedData.project_About=ProjectAbout;
+    receivedData.skills_Learn=ProjectLearn;
+    receivedData.team_Roles=ProjectSkills;
+    Navigate("/project-scope", { state: {data: receivedData} })
    }
    const handleBackClick =()=>{
-    Navigate("/");
+    Navigate("/overview");
+   }
+   const handleInputProjectAbout =(event)=>{
+    setProjectAbout(event.target.value);
+   }
+   const handleInputProjectLearn =(event)=>{
+    setProjectLearn(event.target.value);
+   }
+   const handleInputProjectSkills=(event)=>{
+    setProjectSkills(event.target.value);
    }
   return (
     <div className={style.hero}>
@@ -65,6 +85,8 @@ const ProjectDetails = () => {
                    height: 220,
                    resize: 'none',
                  }}
+                 onChange={handleInputProjectAbout}
+                 value={ProjectAbout}
                  />
                  <p className={style.passengerAlert}>Please input passenger's name or delete this field.</p>
          </div>
@@ -76,6 +98,8 @@ const ProjectDetails = () => {
                    height: 126,
                    resize: 'none',
                  }}
+                 value={ProjectLearn}
+                 onChange={handleInputProjectLearn}
                  />
                  <p className={style.passengerAlert}>Please input passenger's name or delete this field.</p>
          </div>
@@ -87,6 +111,8 @@ const ProjectDetails = () => {
                    height: 126,
                    resize: 'none',
                  }}
+                 value={ProjectSkills}
+                 onChange={handleInputProjectSkills}
                  />
                  <p className={style.passengerAlert}>Please input passenger's name or delete this field.</p>
          </div>

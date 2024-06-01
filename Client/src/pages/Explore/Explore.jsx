@@ -51,8 +51,8 @@ const explore = () => {
     /*the info of the search bar*/
     const [inputValue, setInputValue] = useState('');
 
-    const handleInputChange = (newValue) => {
-      setInputValue(newValue);
+    const handleInputChange = (e) => {
+      setInputValue(e.target.value);
     };
     const handleClear = () => {   /* clear the text of the search*/
         setInputValue('');

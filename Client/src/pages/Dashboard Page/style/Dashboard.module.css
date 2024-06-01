@@ -1,0 +1,71 @@
+.hero{
+    background: var(--Main-goku, #F5F5F5);
+    height: 100vh;
+
+}
+.MainCountainer{
+    display: flex;
+    gap:20px;
+    padding:16px;
+    padding-bottom: 0px;
+    height: calc(100vh -   72px);
+}
+.sideBarRight{
+    display: flex;
+    width:30%;
+    padding: var(--py-0, 2.25rem) var(--py-0, 2.875rem) var(--py-0, 0rem) var(--py-0, 2rem);
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.75rem;
+    background: var(--base, #FFF);
+    height: (100vh - 72px); 
+    
+}
+.rightCountainer{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    width: 100%;
+}
+.searchBar{
+    border-radius: 16px;
+    background: var(--Neutral-1, #FFF);
+    width: 100%;
+}
+.seeAllButton{
+    display: flex;
+    padding: var(--paddings-gaps-p-2, 12px) var(--paddings-gaps-p-4, 24px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Size-none, 0px);
+    border-radius: var(--Interactive-border-radius---radius-i-sm, 12px);
+}
+.myProjectBar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+    background: var(--base, #FFF);
+
+}
+.myProjectIcon{
+    display: flex;
+    padding: var(--py-2, 8px) var(--pr-4, 16px) var(--py-2, 8px) var(--pl-2, 8px);
+    justify-content: center;
+    align-items: center;
+    gap: var(--Size-80, 8px);
+}
+.myProjectText{
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[S] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 171.429% */
+}

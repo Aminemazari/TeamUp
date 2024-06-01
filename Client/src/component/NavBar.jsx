@@ -6,13 +6,18 @@ import menu from "../pages/assets/Menu.svg"
 import chat from "../pages/assets/Chat.svg"
 import Setting from "../pages/assets/Setting.svg"
 import { useNavigate } from 'react-router-dom'
-const NavBar = ({Dashboard,Explore,Mentorship,About}) => {
+import picsImport from "../assets/Avatar picture.svg"
+const NavBar = ({Dashboard,Explore,Mentorship,About,Categories,pics}) => {
+  var profilepics; 
+  if (pics==null){
+    profilepics=picsImport;
+  }
   const Navigate= useNavigate();
   const DashboardClicked=()=>{
     Navigate("/dashboard")
    }
    const ExploreClicked=()=>{
-    Navigate("/")
+    Navigate("/home")
    }
    const MentorshipClicked=()=>{
     Navigate("/mentorship")
@@ -20,11 +25,15 @@ const NavBar = ({Dashboard,Explore,Mentorship,About}) => {
    const AboutClicked=()=>{
     Navigate("/about")
    }
+   const CategoriesClicked=()=>{
+    Navigate("/categories")
+   }
   return (
     <div className={style.NavBar}>
         <img src={logo} alt="logo" className={style.TLogo} />
         <div className={style.Navigation}>
             <NavigationLinks text={"Dashboard"} onclick={DashboardClicked} clicked={Dashboard}/>
+            <NavigationLinks text={"Categories"} onclick={CategoriesClicked} clicked={Categories}/>
             <NavigationLinks text={"Explore"} onclick={ExploreClicked} clicked={Explore}/>
             <NavigationLinks text={"Mentorship"} onclick={MentorshipClicked} clicked={Mentorship}/>
             <NavigationLinks text={"About Us"}  onclick={AboutClicked} clicked={About}/>
@@ -32,7 +41,7 @@ const NavBar = ({Dashboard,Explore,Mentorship,About}) => {
         <section className={style.features}>
       <img src={chat}/>
       <img src={Setting}/>
-      <img src={menu}/>
+      <img src={profilepics} className={style.profilePicsNavBar}/>
       </section>
       
     </div>

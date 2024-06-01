@@ -1,0 +1,59 @@
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--Main-goku, #F5F5F5);
+    gap:1rem;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+.Main{
+    overflow: hidden;
+}
+.searchBar{
+    border-radius: 1rem;
+    background: var(--Neutral-1, #FFF);
+    width: 60%;
+  
+
+}
+.exploreCatefories{
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-xl/[S] */
+    font-family: "DM Sans";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2rem; /* 160% */
+}
+.CategoriesCountainer{
+    display: flex;
+    max-width: 56.75rem;
+    padding: 0.125rem 0.875rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0rem;
+    flex-shrink: 0;
+    border-radius: 1.125rem;
+    background: var(--Neutral-2, #FAFAFA);
+}
+.subCountainer{
+    display: flex;
+    padding-top:10px ;
+    padding-bottom: 10px;
+   align-self: center;
+   justify-content: center;
+    gap: 4rem;
+    width: 100%;
+    align-self: stretch;
+    flex-wrap: wrap;
+    background: var(--Neutral-1, #FFF);
+    overflow: auto;  
+    -webkit-scrollbar: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    height: 66vh;
+}
