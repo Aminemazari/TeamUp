@@ -13,10 +13,7 @@ const profileCard = ({userName,CareerName,ReviewsNumber,Reviews,profilePicture})
   return (
  <div className={style.profileCard}>
   <div className={style.Profile_card_countainer}>
-   <section className={style.avatar}>
      <img className={style.avatarImage} src={profilePicture} alt={userName}></img>
-     <img className={style.bdge} src={badge}></img>
-    </section>
     <div className={style.profileCardInfo}>
       <p className={style.userName}>{userName }</p>
       <p className={style.CareerName}>{CareerName}</p>

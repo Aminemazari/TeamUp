@@ -37,7 +37,7 @@ const SingUphandleClick = async (e)=>{
          'content-type' : 'application/json',
         } ),
       body: JSON.stringify({
-        displayName:userName,
+        displayName:userName, 
         email: email,
         password: password,
       }),

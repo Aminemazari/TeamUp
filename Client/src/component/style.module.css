@@ -180,6 +180,8 @@ background: var(--base, #FFF);
 .avatar{
    position: relative;
    align-self: center;
+   width: 48px;
+   height: 48px;
 }
 .bdge{
     position: absolute;
@@ -188,9 +190,18 @@ background: var(--base, #FFF);
    right: 0;
   
 }
+.avatarImagePost{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+}
 .avatarImage{
-    width: 3rem;
-    border-radius: 64px;
+    
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
 }
 .profileCardInfo{
     display: flex;
@@ -955,6 +966,8 @@ text-decoration-line: underline;
     gap: 40px;
     width: 100%;
     padding: 96px;
+    padding-bottom: 30px;
+    background-color: white;
 
 }
 .footerCountainer{

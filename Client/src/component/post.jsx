@@ -102,7 +102,7 @@ const post = ({userName,pics,categorie,date,Title,description,level,member,durat
             <div className={style.profileCard}>
                 <div className={style.Profile_card_countainer_post}>
                 <section className={style.avatar}>
-                    <img className={style.avatarImage} src={pics} alt={userName}></img>
+                    <img className={style.avatarImagePost} src={pics} alt={userName}></img>
                     </section>
                     <div className={style.profileCardInfo}>
                     <p className={style.userNamePost}>{userName }</p>
