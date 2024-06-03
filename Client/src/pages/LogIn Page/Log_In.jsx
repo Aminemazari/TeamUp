@@ -38,9 +38,28 @@ const logIn = () => {
    
         }),
       }).then(response => response.json())
-      .then(data => {
+      .then(data => { 
         if (data.accessToken!=null){
           localStorage.setItem('accessToken',data.accessToken);
+
+
+          fetch(`${API_URL}/api/v4/users/currentUser`,{
+            method:"GET",
+            headers:new Headers({  
+              'accept': 'text/plain',
+              'Authorization':`Bearer ${data.accessToken}`,
+              
+             } ),
+          })
+          .then(response => response.json())
+          .then(UserData => {
+            localStorage.setItem('UserData',JSON.stringify(UserData));
+          })
+          .catch(error =>
+            console.log(error)
+          );
+        
+
           Navigate("/Home");
         }
         else{

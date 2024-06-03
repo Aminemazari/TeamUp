@@ -11,13 +11,33 @@ import ProjectMeeting from '../../component/dashboardComponenet/ProjectMeeting'
 import MyProjectCard from '../../component/dashboardComponenet/MyProjectCard'
 import picture from "../../assets/Avatar.svg"
 import SearchBar from '../../component/dashboardComponenet/SearchBarWithCreatProjectButton'
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 import book from "../../assets/book.svg"
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import NoProjectBar from '../../component/dashboardComponenet/noProjectBar'
+import API_URL from '../../component/API_URL'
 const Dashboard = () => {
   const Navigate= useNavigate();
   const [inputValue,setInputValue]=useState();
+  const [profileData,setProfileData]=useState(null);
+
+  useEffect(() => {
+    const UserData = localStorage.getItem('UserData');
+    setProfileData(JSON.parse(UserData));
+  }, []);
+
+
+  if (!profileData) {
+    return (
+      <>
+        <Box sx={{ width: '100%' }}>
+          <LinearProgress />
+        </Box>
+      </>
+    )
+  } 
   const createNewProject=()=>{
     Navigate("/overview");
   }
@@ -34,7 +54,7 @@ const Dashboard = () => {
         <main className={style.MainCountainer}>
           <section className={style.sideBarRight}>
       
-              <ProfileCard userName={"Amine Mazari"}  CareerName={"Web Developer"} profilePicture={picture} ReviewsNumber={0} Reviews={0.0}/>
+              <ProfileCard userName={profileData.displayName}  CareerName={profileData.handler} profilePictures={profileData.profilePicture} ReviewsNumber={profileData.followersCount} Reviews={profileData.rate} Upload={true}/>
               <Streak/>
               
               <PremiumAccesCard Percentage={"50"} projectName={"web developer"} />

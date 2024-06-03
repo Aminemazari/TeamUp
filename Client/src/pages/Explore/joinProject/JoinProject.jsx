@@ -26,14 +26,15 @@ import Footer from "../../../component/Footer";
 const JoinProject = () => {
   const location = useLocation();
   const [data, setData] = useState(null);
-  const id = location.state?.data;
+  const [id, setId] = useState(location.state?.data || localStorage.getItem('projectId'));
   const subContainerRef = useRef(null);
   const ReadyRef = useRef(null);
   const lastScrollTop = useRef(0);
 
   useEffect(() => {
     if (id) {
-      fetch(`${API_URL}/api/v4/projects-posts/${id}`, {
+      localStorage.setItem('projectId', id);
+      fetch(`${API_URL}/api/v4/projects-posts/${localStorage.getItem("projectId")}`, {
         method: "GET",
         headers: new Headers({
           'content-type': 'application/json',
@@ -73,7 +74,7 @@ const JoinProject = () => {
         projectDetailCountainer.removeEventListener('scroll', handleScroll);
       }
     };
-  }, []);
+  }, [data]);
 
   if (!data) {
     return (
@@ -238,7 +239,7 @@ const JoinProject = () => {
           <section className={style.mentorDetailCountainer}>
             <h1 className={style.aboutMentor}>About the mentor</h1>
             <div className={style.projectNumberCountainer}>
-              <ProfileCard profilePicture={profilePics} userName={userName} CareerName={careerName} ReviewsNumber={100} Reviews={reviewStar} />
+              <ProfileCard profilePicture={profilePics} userName={userName} CareerName={careerName} ReviewsNumber={100} Reviews={reviewStar} Upload={false} />
               <div className={style.openBook}>
                 <img src={bookOpen} alt="book open" />
                 <p className={style.numberProject}>{numberProject} <span className={style.projectText}>projects</span></p>

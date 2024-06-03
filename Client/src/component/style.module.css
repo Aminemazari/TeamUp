@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 .input_ant{
     padding: clamp(10px,12px,14px);
     max-height: 48px;
@@ -749,6 +750,8 @@ text-decoration-line: underline;
     line-height: 2rem; /* 133.333% */
 }
 .profilePicsNavBar{
+    width: 35px;
+    height: 35px;
     border-radius: 99px;
  
 }
@@ -1081,4 +1084,13 @@ text-decoration-line: underline;
 .socailMediaPics{
     width: 40px;
     height: 40px;
+}
+.uploadProfilePics:hover{
+    
+}
+.UploadPicsNotVisible{
+    display: none;
+}
+.UploadPicsVisible{
+display: block;
 }

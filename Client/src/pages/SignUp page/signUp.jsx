@@ -16,6 +16,7 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
 const signUp = () => {
+  const [status,setStatus]=useState("");
   const [loading ,setLoading]= useState(false);
   const Navigate = useNavigate("");
   const [isVisibale,setVisibale]=useState(false);
@@ -30,6 +31,7 @@ const signUp = () => {
 const SingUphandleClick = async (e)=>{
   e.preventDefault();
   setLoading(true);
+
   try{
     const response = await fetch(`${API_URL}/api/v2/auth/register`,{
       method: "POST",
@@ -44,21 +46,21 @@ const SingUphandleClick = async (e)=>{
     })
     const statusCode = response.status;
    if (statusCode===200){
-    console.log("amine")
     setVisibale(true);
     setVirification_Form(true);
     setLoading(false);
    }
   else{
     setLoading(false);
+    setStatus("error");
   }
     
 
     }catch (error) { 
-      console.log(error) 
       setLoading(false);
-  
+      setStatus("error");
     }
+
 }
 const handleChangeEmail = (newValue) => {
  
@@ -126,15 +128,15 @@ classNames(
         <h1 className={style.creatYourAccount}>Create Your Account.</h1>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your name</p>
-          <Input placeHolder={"Mazari Amine"} inputValue={userName} onInputChange={handleChangeUserName}></Input>
+          <Input placeHolder={"Mazari Amine"} inputValue={userName} onInputChange={handleChangeUserName} Status={status}></Input>
         </div>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your email</p>
-          <Input placeHolder={"eg.mazariamine095@gmail.com"} inputValue={email} onInputChange={handleChangeEmail}></Input>
+          <Input placeHolder={"eg.mazariamine095@gmail.com"} inputValue={email} onInputChange={handleChangeEmail} Status={status}></Input>
         </div>
         <div className={style.Same_input}>
           <p className={style.enter_Data}>Enter your password</p>
-          <Input_password InputValue={password} onInputChange={handleChangePassword} ></Input_password>
+          <Input_password InputValue={password} onInputChange={handleChangePassword}  Status={status}></Input_password>
         </div>
        
         <Secondary_button text={"SIGN UP"} border={false} onclick={SingUphandleClick}></Secondary_button>

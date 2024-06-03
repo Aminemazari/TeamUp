@@ -15,7 +15,7 @@ const postSubSection =  ({display,Posts}) => {
     
   return (
     <div className={`${style.posts} ${!display ? style.not_diplayed: ''}`}>
-      {
+      {data &&
        data.map((dat)=>{
         return(
       <Post userName={dat.mentor.displayName} 

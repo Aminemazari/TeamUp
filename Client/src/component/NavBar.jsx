@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import style from "./style.module.css"
 import logo from "../assets/TLogo.svg"
 import NavigationLinks from './NavigationLinks'
@@ -7,11 +7,14 @@ import chat from "../pages/assets/Chat.svg"
 import Setting from "../pages/assets/Setting.svg"
 import { useNavigate } from 'react-router-dom'
 import picsImport from "../assets/Avatar picture.svg"
-const NavBar = ({Dashboard,Explore,Mentorship,About,Categories,pics}) => {
-  var profilepics; 
-  if (pics==null){
-    profilepics=picsImport;
-  }
+const NavBar = ({Dashboard,Explore,Mentorship,About,Categories}) => {
+  const [profileData,setProfileData]=useState("");
+
+  useEffect(() => {
+    const UserData = localStorage.getItem('UserData');
+    setProfileData(JSON.parse(UserData));
+  }, []);
+
   const Navigate= useNavigate();
   const DashboardClicked=()=>{
     Navigate("/dashboard")
@@ -41,7 +44,7 @@ const NavBar = ({Dashboard,Explore,Mentorship,About,Categories,pics}) => {
         <section className={style.features}>
       <img src={chat}/>
       <img src={Setting}/>
-      <img src={profilepics} className={style.profilePicsNavBar}/>
+      <img src={profileData.profilePicture}   className={style.profilePicsNavBar}/>
       </section>
       
     </div>

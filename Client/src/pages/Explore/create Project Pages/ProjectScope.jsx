@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import API_URL from '../../../component/API_URL';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+
 const ProjectScope = () => {
   const description = 'This is a description.';
   const Navigate= useNavigate();
@@ -27,7 +28,7 @@ const ProjectScope = () => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
       setStoredAccessToken(accessToken);
-      console.log(accessToken);
+
     }
   }, []);
 
@@ -42,7 +43,7 @@ const ProjectScope = () => {
 
     try{
       const response = await fetch(`${API_URL}/api/v4/projects-posts`,{
-        method: "POST",
+        method: "POST", 
         headers : new Headers( {  
           'content-type' : 'application/json',
           'Authorization':`Bearer ${storedAccessToken}`,

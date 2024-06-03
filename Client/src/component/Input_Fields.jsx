@@ -2,7 +2,7 @@ import React from 'react'
 import style from "./style.module.css"
 import { Input } from 'antd';
 import { useState } from 'react';
-const Input_Fields = ({placeHolder,inputValue, onInputChange,Status }) => {
+const Input_Fields = ({placeHolder,inputValue, onInputChange,Status}) => {
   const [input, setInput] = useState(inputValue || '');
 
   const handleInputChange = (e) => {
