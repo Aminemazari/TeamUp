@@ -4,14 +4,9 @@ import Post from '../../component/post'
 import pics from "../../assets/3.svg"
 import API_URL from '../../component/API_URL'
 
-const postSubSection =  ({display,Posts}) => {
-  const [data,setData]=useState([]);
-  
-    useEffect( () => {const response= fetch(`${API_URL}/api/v4/projects-posts?PageSize=10&PageNumber=1`)
-    .then( result => result.json() )
-    .then ( result=>setData(result.projectsPosts)) },[])
+const postSubSection =  ({display,Posts,data}) => {
+ 
     
-     
     
   return (
     <div className={`${style.posts} ${!display ? style.not_diplayed: ''}`}>

@@ -1,6 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import styl from "./style/home.module.css"
 import Navbar from "../../component/NavBar"
+import { Navigate, useNavigate } from 'react-router-dom'
 import CategoriesCard from '../../component/categoriesCard'
 import brain from "../../assets/brain.svg"
 import computer from "../../assets/computer.svg"
@@ -15,7 +16,16 @@ import SearchBar from '../../component/searchBar.jsx'
 import Explore_Page from '../Explore/Explore.jsx'
 
 const home = () => {
- /* the navigation button change */
+  const Navigate=useNavigate();
+
+  useEffect(()=>{
+   const accessToken = localStorage.getItem("accessToken"); 
+   if (!accessToken){
+     Navigate("/login");
+   }
+       },[])
+
+
   return (
     <div className={styl.hero}>
       <Navbar  Dashboard={false} Explore={true} Mentorship={false} About={false}/>

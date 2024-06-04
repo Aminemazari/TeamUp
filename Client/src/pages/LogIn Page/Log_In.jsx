@@ -13,15 +13,19 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
 const logIn = () => {
-  console.log("fhkjdshf")
+  const Navigate=useNavigate();
+
+  useEffect(()=>{
+   const accessToken = localStorage.getItem("accessToken"); 
+   if (accessToken){
+     Navigate("/home");
+   }
+       },[])
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status,setStatus] = useState("");
   const [loading ,setLoading]= useState(false);
-
-
-
-  const Navigate=useNavigate();
   const loginClickHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -60,7 +64,7 @@ const logIn = () => {
           );
         
 
-          Navigate("/Home");
+          Navigate("/home");
         }
         else{
           setStatus("error");

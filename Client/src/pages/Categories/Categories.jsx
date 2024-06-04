@@ -7,11 +7,19 @@ import brain from "../../assets/brain.svg"
 import computer from "../../assets/computer.svg"
 import andriod from "../../assets/android.svg"
 import Footer from '../../component/Footer.jsx'
+import { useNavigate } from 'react-router-dom'
 const Categories = () => {
   const subContainerRef = useRef(null);
   const footerRef = useRef(null);
   const lastScrollTop = useRef(0);
+  const Navigate=useNavigate();
 
+  useEffect(()=>{
+   const accessToken = localStorage.getItem("accessToken"); 
+   if (!accessToken){
+     Navigate("/login");
+   }
+       },[])
   useEffect(() => {
     const handleScroll = () => {
       const subContainer = subContainerRef.current;

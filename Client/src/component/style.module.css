@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+:root {
+    --default-font-family: "Roboto", sans-serif; /* Default font family */
+}
 
 .input_ant{
     padding: clamp(10px,12px,14px);

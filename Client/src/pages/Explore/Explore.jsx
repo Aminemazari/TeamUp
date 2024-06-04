@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Navbar from "../../component/NavBar"
 import CategoriesCard from '../../component/categoriesCard'
 import brain from "../../assets/brain.svg"
@@ -16,8 +16,33 @@ import FilterButton from '../../component/filterCategoriesButton.jsx'
 import PostSubSection from "./postSubSection.jsx"
 import FilterSideBarProjects from '../../component/filterSideBarProjects.jsx'
 import MentoresSubSection from './mentoresSubSection.jsx'
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
+import API_URL from '../../component/API_URL.jsx'
 const explore = () => {
 
+  const [Data,setData]=useState([]);  
+  useEffect( () => {
+    
+     fetch(`${API_URL}/api/v4/projects-posts?pageSize=100&pageNumber=1`,{
+    method:"GET",
+    headers:new Headers({  
+      'accept': 'text/plain',
+     } ),
+  })
+  .then( response => response.json() )
+  .then (DataPost=>{setData(DataPost.projects)})}  
+,[])
+
+  if (Data==[]){
+    return (
+      <>
+        <Box sx={{ width: '100%' }}>
+          <LinearProgress />
+        </Box>
+      </>
+    )
+  }
 
     /*FILTER SECTION
    /* filter of the side bar */
@@ -92,7 +117,7 @@ const explore = () => {
             </div>
 
         </div>
-        <PostSubSection display={filterProject}/>
+        <PostSubSection display={filterProject} data={Data}/>
         <MentoresSubSection display={filterMentor}/>
         
      </section>

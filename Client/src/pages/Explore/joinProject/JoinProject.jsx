@@ -14,7 +14,7 @@ import memberPics from "../../../assets/member.svg";
 import NavBar from '../../../component/NavBar';
 import SearchBar from '../../../component/searchBar';
 import style from "./style/joinProject.module.css";
-import { Breadcrumb, Button } from 'antd';
+import { Breadcrumb, Button,Modal,Input } from 'antd';
 import ProfileCard from '../../../component/dashboardComponenet/profileCard';
 import bookOpen from "../../../assets/Book_open.svg";
 import API_URL from '../../../component/API_URL';
@@ -22,59 +22,118 @@ import { useLocation } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import Footer from "../../../component/Footer";
+import image from "../../../assets/sammy-line-man-receives-a-mail 1.svg"
+import { useNavigate } from 'react-router-dom';
 
+const { TextArea } = Input;
 const JoinProject = () => {
+  const Navigate=useNavigate("")
   const location = useLocation();
   const [data, setData] = useState(null);
   const [id, setId] = useState(location.state?.data || localStorage.getItem('projectId'));
   const subContainerRef = useRef(null);
   const ReadyRef = useRef(null);
   const lastScrollTop = useRef(0);
+  const [modal2Open, setModal2Open] = useState(false);
+  const [modal3Open,setModal3Open] = useState(false);
+  const [RequestLetter, setRequestLetter] = useState("");
+  const [storedAccessToken, setStoredAccessToken] = useState(null);
+  useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      setStoredAccessToken(accessToken);
+      console.log(accessToken);
+    }
+  }, []);   
+  
+  useEffect(() => {
+        if (id) {
+          localStorage.setItem('projectId', id);
+          fetch(`${API_URL}/api/v4/projects-posts/${localStorage.getItem("projectId")}`, {
+            method: "GET",
+            headers: new Headers({
+              'content-type': 'application/json',
+              'accept': 'text/plain',
+            }),
+          }).then(response =>
+            response.json()
+          ).then(result => {
+            setData(result);
+            console.log(result);
+          }).catch(
+            e => console.log(e)
+          )
+        }
+      }, [id]);
 
   useEffect(() => {
-    if (id) {
-      localStorage.setItem('projectId', id);
-      fetch(`${API_URL}/api/v4/projects-posts/${localStorage.getItem("projectId")}`, {
-        method: "GET",
-        headers: new Headers({
-          'content-type': 'application/json',
-          'accept': 'text/plain',
-        }),
-      }).then(response =>
-        response.json()
-      ).then(result => {
-        setData(result);
-        console.log(result);
-      }).catch(
-        e => console.log(e)
-      )
-    }
-  }, [id]);
+        const handleScroll = () => {
+          const projectDetailCountainer = subContainerRef.current;
+          const sectionOfReadyToDive = ReadyRef.current;
+          const st = window.pageYOffset || document.documentElement.scrollTop;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const projectDetailCountainer = subContainerRef.current;
-      const sectionOfReadyToDive = ReadyRef.current;
-      const st = window.pageYOffset || document.documentElement.scrollTop;
+          if (projectDetailCountainer && projectDetailCountainer.scrollHeight - projectDetailCountainer.scrollTop === projectDetailCountainer.clientHeight) {
+            sectionOfReadyToDive.scrollIntoView({ behavior: 'smooth' });
+          }
 
-      if (projectDetailCountainer && projectDetailCountainer.scrollHeight - projectDetailCountainer.scrollTop === projectDetailCountainer.clientHeight) {
-        sectionOfReadyToDive.scrollIntoView({ behavior: 'smooth' });
-      }
+          lastScrollTop.current = st <= 0 ? 0 : st;
+        };
 
-      lastScrollTop.current = st <= 0 ? 0 : st;
-    };
+        const projectDetailCountainer = subContainerRef.current;
+        if (projectDetailCountainer) {
+          projectDetailCountainer.addEventListener('scroll', handleScroll);
+        }
 
-    const projectDetailCountainer = subContainerRef.current;
-    if (projectDetailCountainer) {
-      projectDetailCountainer.addEventListener('scroll', handleScroll);
-    }
+        return () => {
+          if (projectDetailCountainer) {
+            projectDetailCountainer.removeEventListener('scroll', handleScroll);
+          }
+        };
+    }, [data]);
 
-    return () => {
-      if (projectDetailCountainer) {
-        projectDetailCountainer.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [data]);
+  
+
+
+
+  const handleInpurRequestLetter=(event)=>{
+    setRequestLetter(event.target.value);
+  }
+
+  const handleSubmition = async()=>{
+    if (storedAccessToken && id){
+    try{
+   const response = await fetch(`${API_URL}/api/v4/projects-posts/join-requests`,{
+    method: 'POST',
+    headers:new Headers( {  
+      'Content-Type' : 'application/json',
+      'Authorization':`Bearer ${storedAccessToken}`,
+      'accept': 'text/plain',
+     } ),
+     body: JSON.stringify({
+      projectPostId:   parseInt(id),
+     message:RequestLetter
+    }),
+  });
+  const statusCode = response.status;
+   if (statusCode===200 ){
+    setModal2Open(false);
+    setModal3Open(true);
+  }
+  }
+  catch{
+     console.log("am tired")
+  }
+}
+  }
+ 
+  
+
+
+
+
+
+
+
 
   if (!data) {
     return (
@@ -85,6 +144,7 @@ const JoinProject = () => {
       </>
     )
   }
+
 
   const profilePics = data.mentor.profilePicture;
   const userName = data.mentor.displayName;
@@ -136,7 +196,11 @@ const JoinProject = () => {
       break;
   }
 
+
+
+
   return (
+    <>
     <div className={style.hero}>
       <NavBar Explore={true} />
       <div className={style.Subhero}>
@@ -212,6 +276,7 @@ const JoinProject = () => {
                 <h1 className={style.projectSammary}>{samary}</h1>
 
                 <Button type="primary" size="large"
+                onClick={() => setModal2Open(true)}
                   style={{
                     background: "#6738DD",
                     width: "166px",
@@ -264,6 +329,7 @@ const JoinProject = () => {
           <h1 className={style.readyToDrive}>Ready to Dive In?</h1>
           <p className={style.GainValuable}>Gain valuable experience and learn from experienced mentors.</p>
           <Button type="primary" size="large"
+          onClick={() => setModal2Open(true)}
             style={{
               background: "#070707",
               width: "231px",
@@ -272,6 +338,66 @@ const JoinProject = () => {
       </div>
       <Footer />
     </div>
+
+    <Modal
+        centered
+        open={modal2Open}
+        onOk={handleSubmition}
+        onCancel={() => setModal2Open(false)}
+        okText="Submit" 
+        cancelText="Cancel"
+        okButtonProps={{ style: { backgroundColor: '#6738DD', color: 'white'}}}
+        cancelButtonProps={{ style: { backgroundColor: 'white', color: 'rgba(0, 0, 0, 0.85)' }}}
+
+
+        
+      >
+      <div className={style.ModelJoinProject}>
+         <h1 className={style.JoinProject}>Join project</h1>
+         <div className={style.joinRequestLetter}>
+          <p className={style.RequestDetails}><span className={style.redStar}>*</span> Request details</p>
+          <TextArea rows={4}
+               placeholder="Describe your motivation for joining this project, specifying the role you want to take, and detail how you plan to contribute"
+                  onChange={handleInpurRequestLetter}
+                  value={RequestLetter}
+                  style={{
+                    height: 305,
+                    resize: 'none',
+                  }}
+                  />
+                  <p className={style.PleaseInputPassenger}>Please input passenger's name or delete this field.</p>
+         </div>
+      </div>
+      </Modal>
+
+
+      <Modal
+        centered
+        open={modal3Open}
+        onOk={() =>{
+          Navigate("/explore") 
+          setModal3Open(false)
+          }}
+        onCancel={() => {
+          setModal3Open(false)
+          Navigate("/dashboard") 
+          }}
+        okText="Continue Exploring" 
+        cancelText="Check Dashboard"
+        okButtonProps={{ style: { backgroundColor: '#6738DD', color: 'white',marginTop:"25px"}}}
+        cancelButtonProps={{ style: { backgroundColor: 'white', color: 'rgba(0, 0, 0, 0.85)',marginTop:"25px" }}}
+
+
+        
+      >
+      
+      <div className={style.ModelRequestSend}>
+         <img src={image} className={style.sendImage}/>
+         <h1 className={style.JoinProject}>Request Sent!</h1>
+         <p className={style.Your_request_to_join}>Your request to join the project has been sent. You wll be notified when you get accepted.</p>
+      </div>
+       </Modal>
+    </>
   )
 }
 

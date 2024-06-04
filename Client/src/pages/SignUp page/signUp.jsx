@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import style from "./signUp.module.css"
 import Secondary_button from '../../component/secondary_button'
 import Input from "../../component/Input_Fields"
@@ -15,10 +15,18 @@ import API_URL from '../../component/API_URL'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
-const signUp = () => {
+const signUp = () => {  
+  const Navigate=useNavigate();
+
+  useEffect(()=>{
+   const accessToken = localStorage.getItem("accessToken"); 
+   if (accessToken){
+     Navigate("/home");
+   }
+       },[])
   const [status,setStatus]=useState("");
   const [loading ,setLoading]= useState(false);
-  const Navigate = useNavigate("");
+  
   const [isVisibale,setVisibale]=useState(false);
   const [isVirification_Form,setVirification_Form]=useState(false);
   const [userName, setUserName] = useState("");

@@ -64,7 +64,10 @@ const ProjectScope = () => {
       })
      
       const statusCode = response.status;
-      Navigate("/dashboard")
+      if (statusCode===200){
+        Navigate("/dashboard")
+      }
+    
       setLoading(true);
       }catch (error) { 
      console.log(error)

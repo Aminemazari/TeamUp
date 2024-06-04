@@ -79,9 +79,11 @@
     flex-direction: column;
     justify-content: space-between;
    height: calc(100vh - 170px);
+   width: 100%;
 }
 .projectDetailSeperater{
     display: flex;
+    justify-content: space-between;
 
 }
 .levelDurationMemember{
@@ -304,4 +306,74 @@
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 36px */
+}
+.ModelJoinProject{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+.JoinProject{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-3xl/[S] */
+    font-family: "DM Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.5px;
+}
+.joinRequestLetter{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.RequestDetails     {
+    color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+
+    /* Body/regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}
+.redStar{
+    color: var(--Dust-Red-5, #FF4D4F);
+}
+.PleaseInputPassenger{
+    color: var(--character-secondary-45, rgba(0, 0, 0, 0.45));
+
+    /* Body/regular */
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 157.143% */
+}
+.ModelRequestSend{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+
+}
+.Your_request_to_join{
+    color: #141414;
+    text-align: center;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Paragraph/text-lg/[R] */
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+}
+.sendImage{
+    width: 250px;
+    height: 250px;
+    margin-left: 30px;
 }

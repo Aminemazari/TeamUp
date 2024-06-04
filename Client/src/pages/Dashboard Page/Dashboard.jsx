@@ -23,6 +23,14 @@ const Dashboard = () => {
   const [inputValue,setInputValue]=useState();
   const [profileData,setProfileData]=useState(null);
 
+  useEffect(()=>{
+   const accessToken = localStorage.getItem("accessToken"); 
+   if (!accessToken){
+     Navigate("/login");
+   }
+       },[])
+
+
   useEffect(() => {
     const UserData = localStorage.getItem('UserData');
     setProfileData(JSON.parse(UserData));
