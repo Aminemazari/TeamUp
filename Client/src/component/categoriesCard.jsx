@@ -56,7 +56,7 @@ const categoriesCard = ({categorie,project,mentors,photo,onclick}) => {
       </a>
       <Tooltip title="Ant User" placement="top">
         <Avatar
-    size={30}
+      size={30}
           style={{
             backgroundColor: '#FFFFFF',
             color: 'var(--Main-bulma, #000)',

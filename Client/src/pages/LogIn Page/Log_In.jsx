@@ -15,13 +15,6 @@ import LinearProgress from '@mui/material/LinearProgress';
 const logIn = () => {
   const Navigate=useNavigate();
 
-  useEffect(()=>{
-   const accessToken = localStorage.getItem("accessToken"); 
-   if (accessToken){
-     Navigate("/home");
-   }
-       },[])
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [status,setStatus] = useState("");
@@ -29,6 +22,7 @@ const logIn = () => {
   const loginClickHandler = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try{
       const response = await fetch(`${API_URL}/api/v2/auth/login`,{
         method: "POST",
@@ -45,8 +39,6 @@ const logIn = () => {
       .then(data => { 
         if (data.accessToken!=null){
           localStorage.setItem('accessToken',data.accessToken);
-
-
           fetch(`${API_URL}/api/v4/users/currentUser`,{
             method:"GET",
             headers:new Headers({  
@@ -57,14 +49,18 @@ const logIn = () => {
           })
           .then(response => response.json())
           .then(UserData => {
-            localStorage.setItem('UserData',JSON.stringify(UserData));
+              if (UserData){
+                localStorage.setItem('UserData',JSON.stringify(UserData));
+                Navigate("/home");
+              }
+   
           })
           .catch(error =>
             console.log(error)
           );
         
 
-          Navigate("/home");
+       
         }
         else{
           setStatus("error");

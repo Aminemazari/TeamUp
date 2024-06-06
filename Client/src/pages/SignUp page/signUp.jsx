@@ -18,12 +18,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 const signUp = () => {  
   const Navigate=useNavigate();
 
-  useEffect(()=>{
-   const accessToken = localStorage.getItem("accessToken"); 
-   if (accessToken){
-     Navigate("/home");
-   }
-       },[])
+
   const [status,setStatus]=useState("");
   const [loading ,setLoading]= useState(false);
   

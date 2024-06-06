@@ -45,6 +45,13 @@ const JoinProject = () => {
       console.log(accessToken);
     }
   }, []);   
+  const [profileData,setProfileData]=useState(null);
+  useEffect(()=>{
+    const UserData = localStorage.getItem('UserData');
+    if(UserData){
+      setProfileData(JSON.parse(UserData));
+    } 
+        },[])
   
   useEffect(() => {
         if (id) {
@@ -152,7 +159,6 @@ const JoinProject = () => {
   const reviewStar = data.mentor.rate;
   const requiredSkills = data.requiredSkills;
   const tags = data.categories;
-  const categorie = "Web Dev";
   const projectTitle = data.title;
   const level = data.projectLevel;
   const duration = data.expectedDuration;
@@ -164,11 +170,12 @@ const JoinProject = () => {
   const numberProject = 10;
 
   var iconForCategorie;
-  switch (categorie) {
-    case "Web Dev":
+
+  switch (tags[0]) {
+    case "Web":
       iconForCategorie = iconWeb;
       break;
-    case "Mobile Dev":
+    case "Mobile":
       iconForCategorie = iconMobile;
       break;
     case "Design":
@@ -177,7 +184,7 @@ const JoinProject = () => {
     case "Cyber Security":
       iconForCategorie = iconCyberSecurity;
       break;
-    case "AI":
+    case "Ai":
       iconForCategorie = iconIA;
       break;
     case "Backend Dev":
@@ -202,7 +209,7 @@ const JoinProject = () => {
   return (
     <>
     <div className={style.hero}>
-      <NavBar Explore={true} />
+      <NavBar Explore={true} picture={profileData.profilePicture}/>
       <div className={style.Subhero}>
         <div className={style.SearchBar}>
           <div className={style.subSection}>
@@ -231,10 +238,10 @@ const JoinProject = () => {
                   {tags && tags.map((tag) => {
                     var iconn = "";
                     switch (tag) {
-                      case "Web Dev":
+                      case "Web":
                         iconn = iconWeb;
                         break;
-                      case "Mobile Dev":
+                      case "Mobile":
                         iconn = iconMobile;
                         break;
                       case "Design":
@@ -243,7 +250,7 @@ const JoinProject = () => {
                       case "Cyber Security":
                         iconn = iconCyberSecurity;
                         break;
-                      case "AI":
+                      case "Ai":
                         iconn = iconIA;
                         break;
                       case "Backend Dev":
@@ -304,7 +311,7 @@ const JoinProject = () => {
           <section className={style.mentorDetailCountainer}>
             <h1 className={style.aboutMentor}>About the mentor</h1>
             <div className={style.projectNumberCountainer}>
-              <ProfileCard profilePicture={profilePics} userName={userName} CareerName={careerName} ReviewsNumber={100} Reviews={reviewStar} Upload={false} />
+              <ProfileCard profilePictures={profilePics} userName={userName} CareerName={careerName} ReviewsNumber={100} Reviews={reviewStar} Upload={false} />
               <div className={style.openBook}>
                 <img src={bookOpen} alt="book open" />
                 <p className={style.numberProject}>{numberProject} <span className={style.projectText}>projects</span></p>

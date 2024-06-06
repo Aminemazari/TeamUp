@@ -40,10 +40,10 @@ const post = ({userName,pics,categorie,date,Title,description,level,member,durat
             {tags.map((tag) => {
                 var iconn ="";
               switch (tag) { 
-               case "Web Dev":
+               case "Web":
                 iconn=iconWeb;
                 break;
-            case "Mobile Dev":
+            case "Mobile":
                 iconn=iconMobile;
                 
                 break;
@@ -56,7 +56,7 @@ const post = ({userName,pics,categorie,date,Title,description,level,member,durat
                 iconn=iconCyberSecurity;
                 break;
 
-            case "AI":
+            case "Ai":
                 iconn=iconIA;
                 break;
 

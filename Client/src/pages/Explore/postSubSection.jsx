@@ -30,24 +30,7 @@ const postSubSection =  ({display,Posts,data}) => {
        })
       }
       
-        <Post userName={"Lorem Ipsum"} pics={pics} categorie={"Mobile Developer"} date={"3h"} 
-        Title={"Habit Tracker: A Simple Mobile App for Daily Habits"}
-        description={"This project aims to introduce users to Teal programming for mobile development by building a basic habit tracker app. Users will learn fundamental Teal concepts like user interface design, data storage, notifications, and user interaction."}
-        duration={"1 mounth"}
-        member={5}
-        level={"Beginner"}
-        tags={["Web Dev","Mobile Dev"]}
-       
-        />
-             <Post userName={"Lorem Ipsum"} pics={pics} categorie={"Mobile Developer"} date={"3h"} 
-        Title={"Habit Tracker: A Simple Mobile App for Daily Habits"}
-        description={"This project aims to introduce users to Teal programming for mobile development by building a basic habit tracker app. Users will learn fundamental Teal concepts like user interface design, data storage, notifications, and user interaction."}
-        duration={"1 mounth"}
-        member={5}
-        level={"Beginner"}
-        tags={["Web Dev","Mobile Dev"]}
-       
-        />
+
         
 </div>
   )

@@ -1,19 +1,31 @@
-import React,{useEffect}from 'react'
+import React,{useEffect ,useState}from 'react'
 import Navbar from '../../component/NavBar'
 import style from "./style/Mentorship.module.css"
 import {Button } from 'antd';
 import Footer from "../../component/Footer"
 import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 const Dashboard = () => {
   const Navigate=useNavigate();
-
+  const [profileData,setProfileData]=useState(null);
   useEffect(()=>{
-   const accessToken = localStorage.getItem("accessToken"); 
+   const accessToken = localStorage.getItem("accessToken");
+    const UserData = localStorage.getItem('UserData');
+    if(UserData){
+      setProfileData(JSON.parse(UserData));
+    } 
    if (!accessToken){
      Navigate("/login");
    }
        },[])
-
+    if (!profileData){
+        return(
+        <Box sx={{ width: '100%' }}>
+        <LinearProgress />
+        </Box> 
+         )
+    }
    const Learn_Button_style={
     display: 'inline-flex',
     padding: 'var(--py-4, 24px) var(--px-6, 24px)',
@@ -51,7 +63,7 @@ const Dashboard = () => {
   }
   return (
     <div className={style.hero}>
-        <Navbar  Dashboard={false} Explore={false} Mentorship={true} About={false}/> 
+        <Navbar  Dashboard={false} Explore={false} Mentorship={true} About={false} picture={profileData.profilePicture}/> 
         <section className={style.MentorshipContainerOne}>
             <div className={style.RequestMentorshipDetail}>
               <h1 className={style.TeamUpMentorship}>TeamUp Mentorship Program</h1>

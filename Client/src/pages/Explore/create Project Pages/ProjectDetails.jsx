@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import NavBar from '../../../component/NavBar'
 import style from "./style/CreatProject.module.css"
 import { Input,Button } from 'antd';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 const { TextArea } = Input;
 import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
@@ -15,7 +17,17 @@ const ProjectDetails = () => {
   const [ProjectAbout,setProjectAbout]=useState("");
   const [ProjectLearn,setProjectLearn]=useState("");
   const [ProjectSkills,setProjectSkills]=useState("");
-
+  const [profileData,setProfileData]=useState(null);
+  useEffect(()=>{
+    const accessToken = localStorage.getItem("accessToken"); 
+    const UserData = localStorage.getItem('UserData');
+    if(UserData){
+      setProfileData(JSON.parse(UserData));
+    } 
+    if (!accessToken){
+      Navigate("/login");
+    }
+        },[])
 
   const SaveAndContinue =()=>{
     receivedData.project_About=ProjectAbout;
@@ -35,9 +47,16 @@ const ProjectDetails = () => {
    const handleInputProjectSkills=(event)=>{
     setProjectSkills(event.target.value);
    }
+   if (!profileData){
+    return(
+    <Box sx={{ width: '100%' }}>
+    <LinearProgress />
+    </Box> 
+     )
+}
   return (
     <div className={style.hero}>
-    <NavBar/>
+    <NavBar picture={profileData.profilePicture}/>
    <div className={style.ProjectDetails}>
        <section className={style.Steps}>
        <h1 className={style.titlePublish}>Publish A New Project</h1>

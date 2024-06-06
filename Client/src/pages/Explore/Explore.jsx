@@ -19,30 +19,9 @@ import MentoresSubSection from './mentoresSubSection.jsx'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 import API_URL from '../../component/API_URL.jsx'
-const explore = () => {
+const explore = ({Data}) => {
+   
 
-  const [Data,setData]=useState([]);  
-  useEffect( () => {
-    
-     fetch(`${API_URL}/api/v4/projects-posts?pageSize=100&pageNumber=1`,{
-    method:"GET",
-    headers:new Headers({  
-      'accept': 'text/plain',
-     } ),
-  })
-  .then( response => response.json() )
-  .then (DataPost=>{setData(DataPost.projects)})}  
-,[])
-
-  if (Data==[]){
-    return (
-      <>
-        <Box sx={{ width: '100%' }}>
-          <LinearProgress />
-        </Box>
-      </>
-    )
-  }
 
     /*FILTER SECTION
    /* filter of the side bar */

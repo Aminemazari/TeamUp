@@ -1,14 +1,16 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import NavBar from '../../../component/NavBar'
 import style from "./style/CreatProject.module.css"
 import icon from "../../../assets/IconDone.svg"
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 import { Button, Input } from 'antd';
 const { TextArea } = Input;
 import { Steps } from 'antd';
 import { Breadcrumb } from 'antd';
 import { Flex, Tag} from 'antd';
 import { useNavigate } from 'react-router-dom';
-const tagsData = ['Web Dev','Design','Mobile Dev','Cyber security'];
+const tagsData =  ["Mobile","Design","Web", "Cyber security","Ai", "Game", "Data Science"];
 const Overview = () => {
 const Navigate= useNavigate();
   const description = 'This is a description.';
@@ -16,7 +18,17 @@ const Navigate= useNavigate();
   const [selectedTags, setSelectedTags] = useState([]);
   const [projectTitle,setprojectTitle]=useState("");
   const [ProjectSummary,setprojectSummary]=useState("");
-
+  const [profileData,setProfileData]=useState(null);
+  useEffect(()=>{
+    const accessToken = localStorage.getItem("accessToken"); 
+    const UserData = localStorage.getItem('UserData');
+    if(UserData){
+      setProfileData(JSON.parse(UserData));
+    } 
+    if (!accessToken){
+      Navigate("/login");
+    }
+        },[])
 
   const handleChange = (tag, checked) => {
     const nextSelectedTags = checked
@@ -48,9 +60,16 @@ const Navigate= useNavigate();
  const handleInputProjectSammary =(event)=>{
   setprojectSummary(event.target.value);
  }
+ if (!profileData){
+  return(
+  <Box sx={{ width: '100%' }}>
+  <LinearProgress />
+  </Box> 
+   )
+}
   return (
     <div className={style.hero}>
-     <NavBar/>
+     <NavBar picture={profileData.profilePicture}/>
     <div className={style.Overview}>
         <section className={style.Steps}>
         <h1 className={style.titlePublish}>Publish A New Project</h1>

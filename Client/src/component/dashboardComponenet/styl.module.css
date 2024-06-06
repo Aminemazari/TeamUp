@@ -8,6 +8,7 @@
     flex: 1 0 0;
     border-radius: var(--Surface-border-radius---radius-s-md, 18px);
     background: var(--base, #FFF);
+    max-height: 107px;
 }
 .noProjectTex{
     color: var(--Neutral-12, #141414);
@@ -55,6 +56,19 @@
     background-color: #595D62;
     border-left: 1px solid #595D62;
    
+}
+.date{
+    align-self: end;
+    color: var(--Neutral-6, #BFBFBF);
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-sm/[R] */
+    font-family: "DM Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
 }
 .projectBasicInfo{
     width: 100%;
@@ -109,4 +123,16 @@ gap: 6px;
     font-weight: 400;
     line-height: 16px; /* 133.333% */
 
+}
+
+.mentoresProfiles{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:6px;
+ 
+}
+.MyProjectCardImageCategories{
+    width:  32px;
+    height: 32px;
 }

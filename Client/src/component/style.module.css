@@ -11,6 +11,9 @@
     max-height: 48px;
     width: 100%;
 }
+.navbarChatbuton{
+    padding: 0;
+}
 
 .secondary_button{
     display: flex;
@@ -170,12 +173,13 @@ background: var(--base, #FFF);
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap:10px;
+
 }
 .Profile_card_countainer{
     display: flex;
     width: 100%;
-    max-height: 134px;
+   
     
     gap:10%;
     align-items: center;
@@ -197,8 +201,12 @@ background: var(--base, #FFF);
 .avatarImagePost{
     width: 48px;
     height: 48px;
+    
 
     border-radius: 50%;
+}
+.profilepicsstyle{
+    justify-self: flex-start;
 }
 .avatarImage{
     
@@ -208,12 +216,14 @@ background: var(--base, #FFF);
     border-radius: 50%;
 }
 .profileCardInfo{
+   justify-self: center;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 }
 .userName{
 color: var(--Neutral-12, #141414);
-height: 1.8125rem;
+    
 /* UI Type/text-2xl/[S] */
     font-family: DM Sans;
 font-size: 20px;
@@ -1096,4 +1106,210 @@ text-decoration-line: underline;
 }
 .UploadPicsVisible{
 display: block;
+}
+.menuNavBar{
+    display: flex;
+    width: 235px;
+    padding: 24px 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: 24px;
+    background: var(--base, #FFF);
+}
+.navBarCoutainerMenu{
+    display: flex;
+    padding: var(--py-0, 0px) 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+.menuNavBarButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: var(--Neutral-11, #1F1F1F);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-md/[S] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */   
+}
+.line{
+    background: rgba(0, 0, 0, 0.06);
+    height: 0.5px;
+    width: 100%;
+}
+.profileCardAdditional{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.Notification_Menu_Countainer{
+    display: flex;
+    padding: 24px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+    align-self: stretch;
+    border-bottom: 10px #0000000F;
+}
+.Notification_Menu{
+    border-radius: 24px;
+    background: #FFF;
+}
+.NotificationText{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-2xl/[S] */
+    font-family: "DM Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px; /* 133.333% */
+}
+.Mark_As_Read{
+    color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+    text-align: center;
+    
+    /* H5/regular */
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+.notificationMark{
+    
+    max-width: 500px;
+    display: flex;
+    padding: 16px;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 16px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.notificationMentorPics{
+    width: 48px;
+    height: 48px;
+}
+.notificatoinResponseone{
+   
+    align-self: stretch;
+
+
+    color: var(--Neutral-12, #141414);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-lg/[S] */
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px; 
+    /* 155.556% */
+}
+.notificatoinResponse{
+    align-self:self-start;
+    color: var(--Neutral-12, #141414);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-lg/[R] */
+    font-family: "DM Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+}
+.NotificationsCountainer{
+    height: calc(100vh - 135px);
+    overflow: auto;  
+  
+    transition: all 0.2s ease ;
+}
+.popUprEquestProject{
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 24px;
+}
+.notificationData_projectTitle{
+    color: var(--Neutral-8, #595959);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-md/[S] */
+font-family: "DM Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 150% */
+}
+.notificationData_projectTitleone{
+    color: #000;
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-3xl/[S] */
+    font-family: "DM Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.5px;
+}
+.senderInfo{
+    display: flex;
+    width: 242px;
+    align-items: center;
+    gap: 24px;
+}
+.senderPicture{
+    width: var(--height-h-8, 32px);
+
+height: var(--height-h-8, 32px);
+}
+.notificationData_senderName{
+    color: var(--Neutral-12, #141414);
+font-feature-settings: 'clig' off, 'liga' off;
+
+/* UI Type/text-xl/[R] */
+font-family: "DM Sans";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 160% */
+}
+.AboutRequest{
+    color: var(--Neutral-8, #595959);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* UI Type/text-md/[S] */
+    font-family: "DM Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; /* 150% */
+}
+.AboutRequestDetail{
+    color: var(--M3-sys-light-on-surface-variant, #484457);
+    font-feature-settings: 'clig' off, 'liga' off;
+    
+    /* Paragraph/text-xl/[R] */
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+}
+.notimag{
+    width: 32px;
+    height: 32px;
+    border-radius: var(--Surface-border-radius---radius-s-rounded, 9999px);
 }

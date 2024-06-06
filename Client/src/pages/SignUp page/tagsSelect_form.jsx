@@ -168,8 +168,27 @@ const handleclick=async(e)=>{
     .then(data => {
       if (data.accessToken!=null){
         localStorage.setItem('accessToken',data.accessToken);
-        Navigate("/Home");
+        
+        fetch(`${API_URL}/api/v4/users/currentUser`,{
+          method:"GET",
+          headers:new Headers({  
+            'accept': 'text/plain',
+            'Authorization':`Bearer ${data.accessToken}`,
+            
+           } ),
+        })
+        .then(response => response.json())
+        .then(UserData => {
+          if (UserData){
+            localStorage.setItem('UserData',JSON.stringify(UserData));
+            Navigate("/home");
+          }//fjsdkljaflkjdsklfjklsdajfkljdsklfjksldjflkjsdklfjsdlkfjklsdjfkldsjlkf
+        })
+        .catch(error =>
+          console.log(error)
+        );
       }
+
       else{
         setStatus("error");
         setLoading(false);
